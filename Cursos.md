@@ -73,3 +73,6 @@ Markdown
 2. **Conexión total:** Al usar los corchetes dobles de Obsidian (`[[ ]]`), tu roadmap se conecta automáticamente con tus carpetas de código y con los enlaces de Google Drive que hablamos antes.
     
 3. **Se respalda solo:** Como esto vive en tu bóveda, en cuanto pasen los minutos configurados, el plugin de Git se encargará de subirlo a GitHub para que lo tengas idéntico tanto en Windows como en Linux.
+
+
+[JavaScript documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)

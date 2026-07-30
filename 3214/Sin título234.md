@@ -1,4 +1,6 @@
-2342342
+```bash
+git init
+git add .|
 
 
 

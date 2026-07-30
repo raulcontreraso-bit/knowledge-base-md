@@ -750,3 +750,143 @@ Now, whenever you have any `.cpp` or `.c` file open in VS Code:
 1. Press **`Ctrl + Shift + B`** (the default VS Code build shortcut).
     
 2. VS Code will automatically run `g++` behind the scenes for the exact file you are looking at and generate the `.exe` right next to it!
+
+
+
+To solve both issues:
+
+1. **The C/C++ mix-up:** You tried to compile a `.c` file (`FileA.c`) using `g++.exe` (the C++ compiler), which often causes strict syntax errors or warnings that fail the build. It should use `gcc.exe` for `.c` files and `g++.exe` for `.cpp` files.
+    
+2. **Organizing outputs into a `bin/` folder:** We can update the task arguments so that every compiled executable automatically goes into a central `bin/` folder at your project root, keeping your source code directories completely clean.
+    
+
+Here is your fully updated, professional multi-language `tasks.json` that routes C files to `gcc`, C++ files to `g++`, and cleanly outputs all binaries into your project's `bin/` folder:
+
+### Replace `.vscode/tasks.json` with this:
+
+JSON
+
+```
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "🔨 Compile C (gcc) -> bin/",
+            "command": "C:/msys64/ucrt64/bin/gcc.exe",
+            "args": [
+                "${file}",
+                "-o",
+                "${workspaceFolder}/bin/${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "🔨 Compile C++ (g++) -> bin/",
+            "command": "C:/msys64/ucrt64/bin/g++.exe",
+            "args": [
+                "${file}",
+                "-o",
+                "${workspaceFolder}/bin/${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "🐹 Run Go",
+            "command": "go",
+            "args": [
+                "run",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "🦀 Build & Run Rust -> bin/",
+            "command": "rustc",
+            "args": [
+                "${file}",
+                "-o",
+                "${workspaceFolder}/bin/${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "⚙️ Compile Fortran -> bin/",
+            "command": "C:/msys64/ucrt64/bin/gfortran.exe",
+            "args": [
+                "${file}",
+                "-o",
+                "${workspaceFolder}/bin/${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "📜 Compile COBOL -> bin/",
+            "command": "cobc",
+            "args": [
+                "-x",
+                "-o",
+                "${workspaceFolder}/bin/${fileBasenameNoExtension}.exe",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "☕ Compile & Run Java",
+            "command": "javac",
+            "args": [
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "🟩 Run Node / JavaScript",
+            "command": "node",
+            "args": [
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": "build"
+        }
+    ]
+}
+```
+
+### What this changes:
+
+- **No more clutter:** Every compiled `.exe` will now be safely deposited directly into your root `bin/` folder (`${workspaceFolder}/bin/...`).
+    
+- **Smart C vs C++ handling:** Make sure to use the **Compile C (gcc)** task when you are looking at `FileA.c`, and the **Compile C++ (g++)** task when you are looking at `FileB.cpp`.

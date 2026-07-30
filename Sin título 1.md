@@ -30,3 +30,41 @@ g++ --version
 ```
 
 If it prints out the version information, you're all set to compile and run C and C++ directly from PowerShell!
+
+
+That is normal! The installation finished successfully, but PowerShell doesn't know where `gcc` is located yet because the installation path hasn't been added to your system's Environment Variables (PATH).
+
+Since you used `winget`, the files are installed on your system, but we just need to let PowerShell find them. Let's fix that right now:
+
+### Step 1: Find where WinLibs installed `gcc.exe`
+
+Usually, WinLibs installs itself inside a folder under `C:\Program Files\WinLibs` or inside your user profile. Let's find it quickly by running this command in PowerShell:
+
+PowerShell
+
+```
+Get-ChildItem -Path "C:\Program Files" -Filter "gcc.exe" -Recurse -ErrorAction SilentlyContinue
+```
+
+_(If that doesn't return anything, check your user folder or your AppData)._
+
+### Step 2: Add it to your PATH (or use the automatic way)
+
+Alternatively, the easiest way to make PowerShell recognize it immediately without hunting for folders is to restart your entire computer or log out and log back into Windows. `winget` usually updates the PATH, but Windows needs a full session refresh to see it.
+
+Try this right now:
+
+1. Close **all** open PowerShell and terminal windows.
+    
+2. Open a **brand new** PowerShell window.
+    
+3. Type:
+    
+    PowerShell
+    
+    ```
+    gcc --version
+    ```
+    
+
+Did it recognize `gcc` after opening a fresh window?

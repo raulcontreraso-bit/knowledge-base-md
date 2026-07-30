@@ -461,3 +461,292 @@ PowerShell
 Mixing them like this forces you to understand linkers, header declarations, and how C++ maintains backwards compatibility with C. Want to give this mix-and-match experiment a try?
 
 
+Let's focus purely on C. Here is your step-by-step game plan to build, compile, and run your first pure C program:
+
+### Step 1: Create your C file
+
+1. Open your text editor (like Notepad, VS Code, or whatever you prefer).
+    
+2. Create a new file and save it as **`main.c`** (make sure the extension is `.c`, not `.txt`).
+    
+3. Paste this standard C code into it:
+    
+
+C
+
+```
+#include <stdio.h>
+
+int main() {
+    printf("Hello from pure C!\n");
+    return 0;
+}
+```
+
+### Step 2: Open your Terminal
+
+1. Open **PowerShell**.
+    
+2. Navigate to the folder where you saved your `main.c` file using the `cd` command (for example: `cd C:\Users\raulc\Desktop`).
+    
+
+### Step 3: Compile it
+
+Run the `gcc` compiler to translate your C code into a Windows executable:
+
+PowerShell
+
+```
+gcc Prog_001.c -o Prog_001.exe
+```
+
+### Step 4: Run your program
+
+Execute your newly built program right there in the terminal:
+
+PowerShell
+
+```
+.\Prog_001.exe
+```
+
+Let me know once you've run it and if it prints out your greeting!
+
+
+Let's pivot to C++!
+
+Since C++ is an extension of C, you'll feel right at home. We'll use your `g++` compiler (which comes right alongside `gcc` in your MSYS2 toolchain) to handle C++'s object-oriented features and the standard input/output stream (`std::cout`).
+
+### Step 1: Create your C++ file
+
+1. In your project folder (`C:\Users\raulc\Documents\GitHub\APP_GalTur\hotel-app\src\engines\cpp`), create a new file named **`Prog_002.cpp`** (notice the `.cpp` extension).
+    
+2. Paste this classic C++ code into it:
+    
+
+C++
+
+```
+#include <iostream>
+
+int main() {
+    std::cout << "Hello from C++!" << std::endl;
+    return 0;
+}
+```
+
+### Step 2: Compile it with `g++`
+
+Open your PowerShell and run the C++ compiler command:
+
+PowerShell
+
+```
+g++ Prog_002.cpp -o Prog_002_cpp.exe
+```
+
+- _What this does:_ It tells `g++` to compile your C++ file into an executable named `program_cpp.exe`.
+    
+
+### Step 3: Run it!
+
+Execute your new C++ program right there in PowerShell:
+
+PowerShell
+
+```
+.\Prog_002_cpp.exe
+```
+
+Let me know how it goes!
+
+Ah, look at what happened! Your `Prog_002.cpp` code is actually trying to call that `say_hello_from_c` function we talked about earlier for the mix-and-match experiment, but we haven't given it the C file to link with yet.
+
+Because the linker (`ld.exe`) can't find `say_hello_from_c`, it fails and stops before creating the `.exe` file.
+
+### How to fix it:
+
+You have two choices depending on what you want `Prog_002.cpp` to look like:
+
+#### Option A: Keep it pure C++ (no C mixing yet)
+
+If you want a standalone C++ file without any external C functions, open `Prog_002.cpp` and make sure it looks like this simple version:
+
+C++
+
+```
+#include <iostream>
+
+int main() {
+    std::cout << "Hello from C++!" << std::endl;
+    return 0;
+}
+```
+
+Then compile it by itself:
+
+PowerShell
+
+```
+g++ Prog_002.cpp -o Prog_002_cpp.exe
+```
+
+#### Option B: Compile them together (Mix C and C++)
+
+If you want to test the mixing part right now, you need to provide both files to `g++` at the same time so it can link them:
+
+PowerShell
+
+```
+g++ Prog_002.cpp Prog_001.c -o Prog_002_cpp.exe
+```
+
+_(Note: `Prog_001.c` would need to contain your `say_hello_from_c` function for this to work)._
+
+Which route would you like to take?
+
+Awesome! Let's make sure your files are set up for the mix, and then run it.
+
+### Step 1: Check your C file (`Prog_001.c`)
+
+Open `Prog_001.c` and make sure it has a function that the C++ file can call. Update it to look like this:
+
+C
+
+```
+#include <stdio.h>
+
+void say_hello_from_c() {
+    printf("Hello from a pure C function inside the C++ program!\n");
+}
+```
+
+_(Save the file)_
+
+### Step 2: Check your C++ file (`Prog_002.cpp`)
+
+Open `Prog_002.cpp` and make sure it calls that C function using `extern "C"`:
+
+C++
+
+```
+#include <iostream>
+
+extern "C" {
+    void say_hello_from_c();
+}
+
+int main() {
+    std::cout << "Hello from C++! Now calling C...\n";
+    say_hello_from_c();
+    return 0;
+}
+```
+
+_(Save the file)_
+
+### Step 3: Compile them together
+
+Run the multi-file command in your PowerShell:
+
+PowerShell
+
+```
+g++ FileB.cpp FileA.c -o FileAB_cpp.exe
+```
+
+### Step 4: Run your mixed program!
+
+PowerShell
+
+```
+.\FileAB_cpp.exe
+```
+
+Let me know what output you get on your screen!
+
+
+Ah, look at what happened! Your command window automatically re-inserted the non-breaking space when you pasted the command.
+
+Let's do this the foolproof way by compiling `FileA.c` into an object file _first_ by itself, so we can verify that the C compiler reads it with zero issues:
+
+PowerShell
+
+```
+gcc -c FileA.c -o FileA.o
+```
+
+Then compile `FileB.cpp` into an object file by itself:
+
+PowerShell
+
+```
+g++ -c FileB.cpp -o FileB.o
+```
+
+Then link them together:
+
+PowerShell
+
+```
+g++ FileB.o FileA.o -o FileAB_cpp.exe
+```
+
+Run these three commands one by one and let me know which step (if any) gives you an error!
+
+
+
+Yes! That is called configuring **VS Code Tasks** (`tasks.json`). Instead of typing out long `g++` or `gcc` commands every time, you can tell VS Code: _"Whenever I press a shortcut, compile my current file or folder automatically."_
+
+Here is how you set it up for your workspace:
+
+### Step 1: Create the `.vscode` folder and `tasks.json`
+
+1. In your project folder (`C:\Users\raulc\Documents\GitHub\APP_GalTur\hotel-app`), look for a folder named `.vscode`. If it doesn't exist, create it.
+    
+2. Inside the `.vscode` folder, create a file named **`tasks.json`**.
+    
+
+### Step 2: Add the Task Configuration
+
+Paste this configuration inside your `tasks.json` file and save it:
+
+JSON
+
+```
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: Build Current File",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Task generated by AI for instant C/C++ compilation."
+        }
+    ]
+}
+```
+
+### Step 3: How to use it
+
+Now, whenever you have any `.cpp` or `.c` file open in VS Code:
+
+1. Press **`Ctrl + Shift + B`** (the default VS Code build shortcut).
+    
+2. VS Code will automatically run `g++` behind the scenes for the exact file you are looking at and generate the `.exe` right next to it!

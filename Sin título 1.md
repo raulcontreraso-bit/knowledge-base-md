@@ -68,3 +68,16 @@ Try this right now:
     
 
 Did it recognize `gcc` after opening a fresh window?
+
+
+Ah, `winget` installed the tool aliases successfully (which is why you saw all those `x86_64-w64-mingw32-gcc` commands added), but it dropped them into a directory that PowerShell doesn't look at by default yet.
+
+Let's locate where WinLibs placed the executables on your system. Run this quick search command in PowerShell to find `x86_64-w64-mingw32-gcc.exe`:
+
+PowerShell
+
+```
+Get-ChildItem -Path "C:\" -Filter "x86_64-w64-mingw32-gcc.exe" -Recurse -ErrorAction SilentlyContinue
+```
+
+Paste the path it gives you here, and we will hook it straight into your PowerShell environment!

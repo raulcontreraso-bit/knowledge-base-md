@@ -76,3 +76,46 @@ Markdown
 
 
 [JavaScript documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+
+
+
+Here is how you can write that as a clean hyperlink in Markdown:
+
+Markdown
+
+```
+[Let's practice English](https://tu-enlace-aqui.com)
+```
+
+And if you ever want to link it directly to one of your notes or roadmaps inside Obsidian instead of a website, you just use double brackets:
+
+Markdown
+
+```
+[[00-roadmap-web]]
+```
+
+What would you like to practice in English today?
+Ah, te refieres a cómo poner un hipervínculo en un archivo Markdown (`.md`) de tu bóveda apuntando a documentación, tutoriales o páginas externas.
+
+En Markdown se hace con la estructura de corchetes para el texto y paréntesis para el enlace:
+
+Markdown
+
+```
+[JavaScript documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+```
+
+Si lo quieres integrar dentro de tu ruta de aprendizaje de desarrollo web que vimos antes, se vería así:
+
+Markdown
+
+```
+## ⚡ Fase 2: JavaScript Moderno
+- [ ] Variables y funciones
+- [ ] Manipulación del DOM
+- [ ] Aprende más leyendo la [documentación oficial de JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+```
+
+

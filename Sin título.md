@@ -1,5 +1,5 @@
 
-¡Perfecto! Ya con la bóveda correcta abierta en Obsidian, pasamos a conectar Git desde la terminal para que todo quede enlazado con GitHub.
+¡Perfecto! Ya con la bóveda correcta abierta en Obsidian, pasamos a conectar Git desde la terminal para que todo quede enlazado con GitHub.123123123qweew
 
 Sigue estos pasos en tu computadora:
 
@@ -67,3 +67,35 @@ Sigue estos pasos en tu computadora:
         
 
 Avísame en cuanto ejecutes estos comandos para dar el último paso y activar el respaldo automático dentro de Obsidian.
+
+
+¡Vas por excelente camino! El único detalle es que tu rama local se creó con el nombre tradicional de **`master`** en lugar de **`main`**, y por eso al intentar hacer `git push -u origin main` se ha confundido.
+
+Faltó ejecutar el comando para renombrar la rama antes de subirla. Vamos a solucionarlo rápidamente con estos comandos en tu terminal:
+
+1. Renombra tu rama actual a `main`:
+    
+    Bash
+    
+    ```
+    git branch -M main
+    ```
+    
+2. Conéctala con tu repositorio remoto de GitHub (por si acaso no lo habías añadido todavía):
+    
+    Bash
+    
+    ```
+    git remote add origin https://github.com/raulcontreraso-bit/knowledge-base-md.git
+    ```
+    
+3. Sube tus archivos ahora sí:
+    
+    Bash
+    
+    ```
+      git push -u origin main
+    ```
+    
+
+Ejecuta eso y cuéntame si sube con éxito para dar el último paso en Obsidian.

@@ -179,6 +179,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-git:Open Git source control": false,
       "switcher:Abrir selector rápido": false,
       "graph:Abrir vista gráfica": false,
       "canvas:Crear nuevo lienzo": false,
@@ -188,8 +189,9 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "07b3c89f993a1edd",
+  "active": "cdd7cec8bed4f66f",
   "lastOpenFiles": [
+    "12341324",
     "Sin título.md"
   ]
 }

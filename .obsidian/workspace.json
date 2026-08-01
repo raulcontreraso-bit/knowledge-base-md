@@ -186,9 +186,23 @@
               "icon": "lucide-file",
               "title": "4"
             }
+          },
+          {
+            "id": "3ed1173beb2e67b6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "enviromen.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "enviromen"
+            }
           }
         ],
-        "currentTab": 12
+        "currentTab": 13
       }
     ],
     "direction": "vertical"
@@ -356,13 +370,14 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "0d3c1fdf0dfbe41f",
+  "active": "3ed1173beb2e67b6",
   "lastOpenFiles": [
+    "Web_Courses_Vault/4.md",
+    "enviromen.md",
     "Pasted image 20260801181859.png",
     "Pasted image 20260801181508.png",
     "Pasted image 20260801180938.png",
     "Web_Courses_Vault/1.md",
-    "Web_Courses_Vault/4.md",
     "Web_Courses_Vault/2.md",
     "Web_Courses_Vault/3.md",
     "12341324/Sin título 1.md",

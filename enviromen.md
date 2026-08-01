@@ -113,3 +113,128 @@ Those `pip` commands are used to install and update the essential Python package
 - **`pip install ipykernel`**: Installs the IPython kernel, which bridges your Python environment so the **VS Code Jupyter extension** can execute notebook code cells and run interactive scripts using your virtual environment.
 
 
+You are totally right—since this is a brand new repository from scratch, that file doesn't exist yet!
+
+To create it quickly and make VS Code remember your environment automatically every time you open this repo, follow these two simple steps:
+
+### 1. Create a `.vscode` folder and settings file
+
+In your root `Web_Courses_Vault` directory, create a new folder named **`.vscode`** (with a dot in front). Inside that folder, create a file named **`settings.json`**.
+
+### 2. Paste the configuration
+
+Add this exact configuration inside your new `settings.json` file and save it:
+
+JSON
+
+```
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/venv/Scripts/python.exe"
+}
+```
+
+Because this file lives right inside your project directory, whenever you open `Web_Courses_Vault` on this computer (or any computer), VS Code will read it automatically and lock straight into your `venv` without you ever having to search for it again!
+
+
+Now that your environment is locked in, your folders and notebooks are structured, and your local build is verified, you are ready to **update your live site navigation and push the changes**.
+
+### Next Steps:
+
+1. **Update your `myst.yml` Table of Contents**:
+    
+    Make sure all your new notebook folders are registered so they appear in your live website's sidebar. Open your root **`myst.yml`** and update the `toc` section:
+    
+    YAML
+    
+    ```
+    version: 1
+    project:
+      title: "Web Courses Vault"
+      author: "Raul"
+      abstract: "My personal course notes and vault."
+      toc:
+        - file: 01_python/index
+          children:
+            - file: 01_python/00_vanilla/For_loop
+            - file: 01_python/01_pandas/dataframe
+      # Add sub-indexes for other folders as you create them later (numpy, frontend, backend, etc.)
+    site:
+      template: book-theme
+      baseurl: "/Web_Courses_Vault/"
+    ```
+    
+2. **Test Locally**:
+    
+    Run your build command in the terminal to ensure everything compiles without warnings:
+    
+    Bash
+    
+    ```
+    jupyter-book build --html
+    ```
+    
+3. **Push to GitHub**:
+    
+    Run your **`Push.bat`** script to send everything live. GitHub Actions will automatically compile your notebooks and deploy them straight to your GitHub Pages URL.
+
+You do **not** need to run `jupyter-book build --html` manually every single time if you use the live preview server, but you _do_ need to build or push when you want the live GitHub site updated.
+
+However, your terminal output shows two specific warnings from the MyST CLI that we need to fix right now:
+
+### 1. The Warning Fixes
+
+- **`baseurl` warning**: MyST wants configuration options like `baseurl` nested inside an `options` block.
+    
+- **`First TOC item cannot have children` warning**: MyST requires that a parent TOC entry (like an index page) cannot directly have `children` attached to it unless it uses a specific grouping structure.
+    
+
+### The Corrected `myst.yml`
+
+Update your root **`myst.yml`** to fix both warnings:
+
+YAML
+
+```
+version: 1
+project:
+  title: "Web Courses Vault"
+  author: "Raul"
+  abstract: "My personal course notes and vault."
+  toc:
+    - file: 01_python/index
+    - file: 01_python/00_vanilla/For_loop
+    - file: 01_python/01_pandas/dataframe
+site:
+  template: book-theme
+  options:
+    baseurl: "/Web_Courses_Vault/"
+```
+
+### Tip: How to preview without constantly building
+
+Instead of running a full build command repeatedly, you can run a local development server that watches your files and updates automatically in your browser as you type:
+
+Bash
+
+```
+myst start
+```
+
+
+
+That error happens because the **MyST CLI** tool is not installed in your active virtual environment yet. Even though you have `jupyter-book`, MyST has its own command-line package.
+
+### How to Fix It
+
+Run this command in your active `venv` terminal to install MyST:
+
+Bash
+
+```
+pip install mystmd
+```
+
+Once that installation finishes, you will be able to run `myst start` to launch your live local preview server, or run your builds without any issues!
+
+
+

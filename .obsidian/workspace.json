@@ -151,12 +151,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Web_Courses_Vault/Sin título 3.md",
+                "file": "Web_Courses_Vault/2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Sin título 3"
+              "title": "2"
             }
           },
           {
@@ -165,16 +165,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Sin título.md",
+                "file": "Web_Courses_Vault/1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Sin título"
+              "title": "1"
+            }
+          },
+          {
+            "id": "0d3c1fdf0dfbe41f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Web_Courses_Vault/4.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "4"
             }
           }
         ],
-        "currentTab": 11
+        "currentTab": 12
       }
     ],
     "direction": "vertical"
@@ -208,7 +222,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:dev/references",
+                "query": "tag:hub/resources",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -342,17 +356,18 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "f727473b1ece90ef",
+  "active": "cdd7cec8bed4f66f",
   "lastOpenFiles": [
-    "Web_Courses_Vault/Sin título 3.md",
-    "Sin título.md",
+    "Web_Courses_Vault/1.md",
+    "Web_Courses_Vault/4.md",
+    "Web_Courses_Vault/2.md",
+    "Web_Courses_Vault/3.md",
     "12341324/Sin título 1.md",
     "12341324/Sin título 2.md",
     "12341324/Sin título 1.pdf",
     "Python/APP.md",
     "Python/APP GAL_Tur.md",
     "Python/Recursos Python.md",
-    "Web_Courses_Vault/Couses III.md",
     "12341324/234342.md",
     "12341324/Cursos.md",
     "12341324/seaborn.md",

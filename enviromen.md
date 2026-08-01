@@ -246,3 +246,37 @@ No, running the server (`myst start`) does not change how VS Code or your Jupyte
 
 
 
+Yes, you can easily link between your markdown (`.md`) files directly inside your notes using standard Markdown link syntax or MyST cross-references.
+
+### 1. Standard Markdown Links
+
+You can use relative file paths to link from one `.md` file to another:
+
+Markdown
+
+```
+[Check out my Pandas notes](../01_python/01_pandas/dataframe.md)
+```
+
+### 2. MyST Cross-References (Recommended)
+
+MyST Markdown supports target labels and cross-references, which automatically use the target document's title as the link text:
+
+- **In your target file** (`dataframe.md`):
+    
+    Markdown
+    
+    ```
+    (dataframe-intro)=
+    # Pandas: DataFrame Introduction
+    ```
+    
+- **In any other file** where you want to link to it:
+    
+    Markdown
+    
+    ```
+    {ref}`dataframe-intro`
+    ```
+
+

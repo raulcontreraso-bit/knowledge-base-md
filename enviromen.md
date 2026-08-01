@@ -280,3 +280,35 @@ MyST Markdown supports target labels and cross-references, which automatically u
     ```
 
 
+To make Binder load your Python packages (like Pandas and NumPy) correctly across your course folders, you need a **`requirements.txt` file placed right in the root directory** (where your main `myst.yml` and `index.md` are, shown in your first image).
+
+Here is exactly what you need to do:
+
+### 1. Create the `requirements.txt` file
+
+In the root folder (`Web_Courses_Vault`), create a new text file named exactly `requirements.txt` (make sure it doesn't accidentally end in `.txt.txt`).
+
+### 2. Add your Python libraries inside it
+
+Open `requirements.txt` and list the packages you want available in your notebooks, one per line:
+
+Plaintext
+
+```
+numpy
+pandas
+```
+
+_(If you use other packages later like `matplotlib` or `seaborn`, just add them here too)._
+
+### Why this works with your folder structure:
+
+Binder automatically looks at the root of your GitHub repository for a `requirements.txt` or `environment.yml` file. When a user clicks the execution button on _any_ page inside your subfolders (`01_python/01_pandas/...`), Binder builds a single shared cloud environment using that root-level file, ensuring all your modules are pre-installed and ready to execute.
+
+### Final Steps:
+
+1. Save `requirements.txt` in the root folder.
+    
+2. Commit and push your changes (`myst.yml` and `requirements.txt`) to GitHub.
+    
+3. Refresh your live site—your interactive notebooks will now have access to Pandas and NumPy!

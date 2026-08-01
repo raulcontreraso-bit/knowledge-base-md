@@ -238,3 +238,11 @@ Once that installation finishes, you will be able to run `myst start` to launch 
 
 
 
+No, running the server (`myst start`) does not change how VS Code or your Jupyter notebooks behave internally.
+
+- **Your Jupyter Environment**: Your code execution, outputs, and variables inside `dataframe.ipynb` are completely handled by your Python `venv` kernel.
+    
+- **The Server's Job**: The server only listens in the background to package your markdown and notebook files into HTML pages for a browser window—it does not alter your VS Code editor workspace, code cells, or python environment at all.
+
+
+

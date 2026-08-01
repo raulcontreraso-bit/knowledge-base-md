@@ -75,3 +75,33 @@ Web_Courses_Vault/
 > │   ├── Online_Courses/
 > │   ├── Video_Courses/
 
+
+
+Web_Courses_Vault/
+│
+├── 01_python/
+│   ├── index.md                      # Overview of the Python Ecosystem
+│   │
+│   ├── 00_vanilla/                   # Pure Python Fundamentals
+│   │   ├── 01_basics.md              # Syntax, Variables, Control Flow
+│   │   ├── 02_data_structures.ipynb  # Lists, Dicts, Sets, Tuples
+│   │   └── 03_oop_and_modules.md     # Classes, Functions, Imports
+│   │
+│   ├── 01_pandas/                    # Data Manipulation & Cleaning
+│   │   ├── index.md                  # Pandas Overview
+│   │   └── aaltoscicomp.ipynb        # Aalto SciComp Review
+│   │
+│   ├── 02_numpy/                     # Numerical & Vectorized Computing
+│   │   └── 01_arrays_matrices.ipynb
+│   │
+│   ├── 03_matplotlib_seaborn/        # Data Visualization
+│   │   └── 01_plotting_basics.ipynb
+│   │
+│   └── 04_scikit_learn/              # Machine Learning Basics
+│       └── 01_intro_to_ml.ipynb
+│
+├── 02_frontend/                      # HTML, CSS, JS, React
+│   └── ...
+│
+└── 03_backend/                       # Node.js, FastAPI, SQL
+    └── ...

@@ -98,6 +98,23 @@
 
 
 
+
+
+ > [!abstract] Workspace Directory Map
+ > ```text
+> 🧠 1. IDEAS_VAULT (Obsidian)  📚 2. KNOWLEDGE_VAULT (Drive) 💻 3. DEV_VAULT (Local  > GitHub)
+ >    ┌────────────────┐ ┌──────────────────────┐┌─────────────────────┐
+ >        
+
+ > │  • Raw brainstorms        │    │  • Course videos / PDFs  │    │  • Active code & projects  │
+ > │  • Project concepts       │ ──>│  • eBooks & reference    │ ──>│  • Practice code & builds  │
+ > │  • Study notes & summaries│    │    manuals               │    │  • GitHub repos            │
+ > └───────────────────────────┘    └──────────────────────────┘    └────────────────────────────┘
+ 
+
+
+
+
 > [!abstract] Workspace Directory Map
 > ```text
 > 📁 DEV_WORKSPACE

@@ -109,18 +109,44 @@
             "id": "6f7a1140b39a6637",
             "type": "leaf",
             "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Sin título 1.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "Sin título 1"
+            }
+          },
+          {
+            "id": "3437f42fb37da1b7",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "Sin título 1.md",
+                "file": "Sin título 2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Sin título 1"
+              "title": "Sin título 2"
+            }
+          },
+          {
+            "id": "f4a035ab8a08c7d6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Couseses III.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Couseses III"
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 9
       }
     ],
     "direction": "vertical"
@@ -154,7 +180,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:dev/references",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -178,7 +204,8 @@
               "title": "Marcadores"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -288,13 +315,16 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "6f7a1140b39a6637",
+  "active": "f4a035ab8a08c7d6",
   "lastOpenFiles": [
+    "2026-08-01.md",
+    "Couseses III.md",
+    "Sin título 2.md",
     "Sin título 1.pdf",
+    "Sin título 1.md",
     "Python/Recursos Python.md",
     "Python/APP GAL_Tur.md",
     "seaborn.md",
-    "Sin título 1.md",
     "Sin título.md",
     "Python/APP.md",
     "12341324/234342.md",

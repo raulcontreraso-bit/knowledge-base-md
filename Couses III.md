@@ -155,3 +155,15 @@ status: active
 | **CL72 Directory** | Open Source Resources Catalog | [070openSource Link](https://www.cl72.org/070openSource.html) |
 
 ---
+
+
+# 1. Rename the default branch to 'main'
+git branch -M main
+
+# 2. Add your GitHub repository as the remote destination
+git remote add origin https://github.com/raulcontreraso-bit/python-vault.git
+
+# 3. Push your code to GitHub
+git push -u origin main
+
+raulcontreraso-bit

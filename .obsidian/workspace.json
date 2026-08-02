@@ -174,7 +174,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -188,12 +189,12 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "ab679797ff1d8be7",
+  "active": "fcf1140c6d66519c",
   "lastOpenFiles": [
-    "ReadMe.MD/Sin nombre/Repository Structure Guide 1 1.md",
-    "ReadMe.MD/Sin nombre/Repository bat.md",
     "ReadMe.MD/Sin nombre/Repository Structure Guide.md",
+    "ReadMe.MD/Sin nombre/Repository Structure Guide 1 1.md",
     "ReadMe.MD/Sin nombre/README.md V3 Working.md",
+    "ReadMe.MD/Sin nombre/Repository bat.md",
     "ReadMe.MD/Sin nombre/Python & Web Lab Readme.md",
     "ReadMe.MD/Sin nombre/01 Profile Index.md",
     "ReadMe.MD/Sin nombre/Bages.md",

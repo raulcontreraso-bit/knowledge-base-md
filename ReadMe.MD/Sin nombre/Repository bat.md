@@ -312,4 +312,236 @@ git commit -m "Initial commit: Add project folder structure and README files"
 git push -u origin main
 ```
 
+---
 
+Your local Git repository was actually created and committed successfully—everything worked locally!
+
+The error **`fatal: repository ... not found`** happens because GitHub does not automatically create a repository on `github.com` just because you ran `git remote add`. You have to create the empty repository on GitHub's website first.
+
+### How to Fix This (2-Minute Fix):
+
+#### 1. Create the repository on GitHub
+
+1. Go to [github.com/new](https://github.com/new).
+    
+2. Set the **Repository name** to: `cs-engineer-workspace`
+    
+3. Make sure it is set to **Public** (or **Private** if you prefer).
+    
+4. **Important:** Leave **"Add a README file"**, **"Add .gitignore"**, and **"Choose a license"** **UNCHECKED** (your local repository already has these files).
+    
+5. Click **Create repository**.
+    
+
+#### 2. Push your local code again
+
+Go back to your PowerShell terminal in `C:\Users\raulc\Desktop\Main_Repo\cs-engineer-workspace` and run:
+
+PowerShell
+
+```
+git push -u origin main
+```
+
+### Alternative Error Reason:
+
+If you _already_ created the repository on GitHub, check these two quick items:
+
+- **Username typo:** Verify that your GitHub username is spelled exactly as `raulcontreraso-bit`.
+    
+- **Repository name typo:** Verify the repository name on GitHub matches `cs-engineer-workspace` word-for-word.
+    
+
+Once you create the empty repository on GitHub, that `git push` command will succeed!
+
+
+Your local Git repository was actually created and committed successfully—everything worked locally!
+
+The error **`fatal: repository ... not found`** happens because GitHub does not automatically create a repository on `github.com` just because you ran `git remote add`. You have to create the empty repository on GitHub's website first.
+
+### How to Fix This (2-Minute Fix):
+
+#### 1. Create the repository on GitHub
+
+1. Go to [github.com/new](https://github.com/new).
+    
+2. Set the **Repository name** to: `cs-engineer-workspace`
+    
+3. Make sure it is set to **Public** (or **Private** if you prefer).
+    
+4. **Important:** Leave **"Add a README file"**, **"Add .gitignore"**, and **"Choose a license"** **UNCHECKED** (your local repository already has these files).
+    
+5. Click **Create repository**.
+    
+
+#### 2. Push your local code again
+
+Go back to your PowerShell terminal in `C:\Users\raulc\Desktop\Main_Repo\cs-engineer-workspace` and run:
+
+PowerShell
+
+```
+git push -u origin main
+```
+
+### Alternative Error Reason:
+
+If you _already_ created the repository on GitHub, check these two quick items:
+
+- **Username typo:** Verify that your GitHub username is spelled exactly as `raulcontreraso-bit`.
+    
+- **Repository name typo:** Verify the repository name on GitHub matches `cs-engineer-workspace` word-for-word.
+    
+
+Once you create the empty repository on GitHub, that `git push` command will succeed!
+
+
+----
+
+Congrats on getting the initial push working! Now that your repository is live on GitHub, updating it as you build projects, add labs, or edit files follows a simple **3-step workflow**.
+
+Whenever you make changes on your computer, run these commands in your terminal inside `C:\Users\raulc\Desktop\Main_Repo\cs-engineer-workspace`:
+
+### The 3-Step Daily Workflow
+
+PowerShell
+
+```
+# Step 1: Stage all your changes (new files, edits, deleted files)
+git add .
+
+# Step 2: Save a snapshot with a message describing what you changed
+git commit -m "Add new FastAPI backend lab"
+
+# Step 3: Send your changes up to GitHub
+git push
+```
+
+_(Note: You only needed `-u origin main` on the very first push. For all future pushes, a plain `git push` is all you need!)_
+
+### Useful Commands to Keep Handy
+
+|**Command**|**What It Does**|
+|---|---|
+|`git status`|Shows which files have been modified, created, or deleted before you commit.|
+|`git log --oneline`|Shows a clean, 1-line history of all your past commits.|
+|`git pull`|Downloads changes from GitHub to your computer (useful if you ever edit files directly on GitHub's website).|
+
+### Recommended Habit
+
+Before you close your laptop or finish working for the day:
+
+1. Run `git status` to see what you worked on.
+    
+2. Run `git add .`
+    
+3. Run `git commit -m "Describe today's progress"`
+    
+4. Run `git push`
+    
+
+This ensures your online GitHub profile is always up-to-date with your latest work!
+
+
+---
+
+
+
+Here is a simple `.bat` file that automates those three steps for you.
+
+It will prompt you to type your commit message, stage all modified or new files, commit them with your message, and push everything to GitHub automatically.
+
+### `update_repo.bat`
+
+Copy the code below, open **Notepad**, paste it, and save it as **`update_repo.bat`** (with "Save as type" set to **All Files (_._)**) directly inside your `cs-engineer-workspace` folder:
+
+DOS
+
+```
+@echo off
+echo ===================================
+echo   Syncing Workspace with GitHub
+echo ===================================
+echo.
+
+:: Step 1: Stage all changes
+git add .
+echo [OK] All changes staged.
+echo.
+
+:: Ask for commit message
+set /p msg="Enter a brief commit message (e.g., Updated README or Added new lab): "
+
+:: Step 2: Commit changes
+git commit -m "%msg%"
+echo.
+
+:: Step 3: Push to GitHub
+echo Pushing changes to GitHub...
+git push
+echo.
+
+echo ===================================
+echo   Repository Updated Successfully!
+echo ===================================
+pause
+```
+
+### How to use it:
+
+1. Whenever you add new files or make edits, just **double-click `update_repo.bat`**.
+    
+2. Type a short description of what you did when prompted (e.g., _Updated Python lab notes_) and press **Enter**.
+    
+3. The script will handle the `git add`, `git commit`, and `git push` commands for you!
+
+
+
+
+----
+
+To target only a specific subfolder, you just need to pass that relative path to `git add` and `git commit` instead of using `.` (which targets the entire repository root).
+
+Here is an updated batch script tailored specifically for updating **`cs-engineer-workspace\02_python`**.
+
+### `update_python.bat`
+
+Save this file as `update_python.bat` inside your main repository folder:
+
+DOS
+
+```
+@echo off
+echo ===================================
+echo   Syncing 02_python with GitHub
+echo ===================================
+echo.
+
+:: Step 1: Stage changes ONLY in the 02_python directory
+git add "cs-engineer-workspace\02_python"
+echo [OK] Staging changes in cs-engineer-workspace\02_python...
+echo.
+
+:: Ask for commit message
+set /p msg="Enter a commit message for Python changes: "
+
+:: Step 2: Commit only the staged files in that folder
+git commit -m "[02_python] %msg%"
+echo.
+
+:: Step 3: Push changes to GitHub
+echo Pushing changes to GitHub...
+git push
+echo.
+
+echo ===================================
+echo   Python Folder Synced Successfully!
+echo ===================================
+pause
+```
+
+### Key Adjustments Made:
+
+1. **`git add "cs-engineer-workspace\02_python"`**: Tells Git to stage modified, deleted, or new files exclusively inside the `02_python` folder. Any edits made in other directories (like `03_fiori` or `projects`) will be ignored for this commit.
+    
+2. **`[02_python] %msg%`**: Automatically prefixes your commit message with `[02_python]` so your Git commit history stays clean and organized by module.

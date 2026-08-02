@@ -926,3 +926,513 @@ If you have multiple folders with their own separate environments (e.g., one in 
 1. In VS Code, go to **File > Save Workspace As...** and save `cs-engineer-workspace.code-workspace`.
     
 2. This allows you to define unique Python interpreters for individual sub-folders directly in the workspace configuration file.
+
+
+----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You are thinking ahead, and that is a great setup! Setting up a `.gitignore`, Python virtual environments, and workspace-specific VS Code settings is essential to keep your repository clean and ensure VS Code automatically selects the right Python interpreter based on which folder you are working in.
+
+Here is how to set up all three components cleanly:
+
+## 1. Create a `.gitignore` File
+
+You don't want to commit compiled Python files (`__pycache__`), virtual environments (`.venv`), or temporary IDE caches to GitHub.
+
+Create a file named **`.gitignore`** in the root directory (`C:\Users\raulc\Desktop\Main_Repo\cs-engineer-workspace`) and add the following:
+
+Code snippet
+
+```
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python Virtual Environments
+.venv/
+env/
+venv/
+ENV/
+
+# VS Code directory settings (except project workspace settings if you share them)
+.vscode/*.log
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Environment variables & secrets
+.env
+```
+
+## 2. Setting Up Python Virtual Environments (`.venv`)
+
+For python projects (like in `02_python` or `projects/turismo-mapa`), it is best practice to create isolated virtual environments so dependencies don't collide.
+
+Inside your folder (for example `02_python`), open PowerShell/Command Prompt and run:
+
+PowerShell
+
+```
+# Navigate to your target folder
+cd 02_python
+
+# Create the virtual environment named .venv
+python -m venv .venv
+```
+
+_(Because `.venv` is in your `.gitignore`, Git will automatically ignore this folder, keeping your GitHub repository small and fast!)_
+
+## 3. Configuring VS Code Settings (`.vscode/settings.json`)
+
+To make VS Code automatically use the virtual environment for python files in specific folders, you can set up workspace settings.
+
+In the root of your project (`cs-engineer-workspace`), create a hidden folder named `.vscode` and place a file inside called `settings.json`:
+
+`cs-engineer-workspace\.vscode\settings.json`
+
+JSON
+
+```
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/02_python/.venv/Scripts/python.exe",
+  "python.terminal.activateEnvironment": true,
+  "editor.formatOnSave": true,
+  "python.formatting.provider": "black",
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true
+  }
+}
+```
+
+### Pro-Tip for Multi-Folder Python Environments:
+
+If you have multiple folders with their own separate environments (e.g., one in `02_python` and one in `projects/turismo-mapa`), you can use a **VS Code Multi-Root Workspace**:
+
+1. In VS Code, go to **File > Save Workspace As...** and save `cs-engineer-workspace.code-workspace`.
+    
+2. This allows you to define unique Python interpreters for individual sub-folders directly in the workspace configuration file.
+
+
+
+
+---
+
+
+Here is an automated batch script that will check if a `.venv` virtual environment exists in your target Python folder, create it if missing, activate it, upgrade `pip`, and automatically install dependencies if a `requirements.txt` file is present.
+
+### `setup_python_env.bat`
+
+Save this file as **`setup_python_env.bat`** in the root of your project (`cs-engineer-workspace`):
+
+DOS
+
+```
+@echo off
+setlocal enabledelayedexpansion
+
+echo ===================================
+echo   Python Virtual Environment Setup
+echo ===================================
+echo.
+
+:: Ask which subfolder to set up (Default: 02_python)
+set "target_dir=02_python"
+set /p target_dir="Enter target subfolder (press ENTER for 02_python): "
+
+:: Verify target directory exists
+if not exist "%target_dir%" (
+    echo [ERROR] Directory "%target_dir%" does not exist!
+    goto END
+)
+
+cd "%target_dir%"
+
+echo.
+echo Processing environment for: %cd%
+echo.
+
+:: Step 1: Check or create .venv
+if not exist ".venv" (
+    echo [1/3] Creating virtual environment (.venv)...
+    python -m venv .venv
+    if errorlevel 1 (
+        echo [ERROR] Failed to create virtual environment. Ensure Python is added to PATH.
+        goto END
+    )
+    echo [OK] Virtual environment created.
+) else (
+    echo [1/3] Virtual environment (.venv) already exists.
+)
+
+:: Step 2: Activate and upgrade pip
+echo.
+echo [2/3] Activating environment and upgrading pip...
+call .venv\Scripts\activate.bat
+python -m pip install --upgrade pip >nul 2>&1
+echo [OK] Pip upgraded to latest version.
+
+:: Step 3: Install requirements if present
+echo.
+if exist "requirements.txt" (
+    echo [3/3] Found requirements.txt. Installing dependencies...
+    pip install -r requirements.txt
+    echo [OK] All requirements installed successfully!
+) else (
+    echo [3/3] No requirements.txt found. Skipping package installation.
+    echo (Tip: Add a requirements.txt file to "%target_dir%" to automate future package installs.)
+)
+
+echo.
+echo ===================================
+echo   Environment Setup Complete!
+echo ===================================
+
+:END
+cd ..
+pause
+```
+
+### How to use it:
+
+1. Double-click **`setup_python_env.bat`**.
+    
+2. Press **Enter** to target `02_python`, or type the path to another folder (e.g., `projects\turismo-mapa`) and hit Enter.
+    
+3. The script will:
+    
+    - Create the `.venv` folder if it doesn't already exist.
+        
+    - Activate the virtual environment inside the batch session.
+        
+    - Upgrade `pip` silently.
+        
+    - Check for a `requirements.txt` file and automatically install all listed packages (e.g., `fastapi`, `uvicorn`, `pandas`).
+
+-----
+
+
+Here is an automated batch script that will check if a `.venv` virtual environment exists in your target Python folder, create it if missing, activate it, upgrade `pip`, and automatically install dependencies if a `requirements.txt` file is present.
+
+### `setup_python_env.bat`
+
+Save this file as **`setup_python_env.bat`** in the root of your project (`cs-engineer-workspace`):
+
+DOS
+
+```
+@echo off
+setlocal enabledelayedexpansion
+
+echo ===================================
+echo   Python Virtual Environment Setup
+echo ===================================
+echo.
+
+:: Ask which subfolder to set up (Default: 02_python)
+set "target_dir=02_python"
+set /p target_dir="Enter target subfolder (press ENTER for 02_python): "
+
+:: Verify target directory exists
+if not exist "%target_dir%" (
+    echo [ERROR] Directory "%target_dir%" does not exist!
+    goto END
+)
+
+cd "%target_dir%"
+
+echo.
+echo Processing environment for: %cd%
+echo.
+
+:: Step 1: Check or create .venv
+if not exist ".venv" (
+    echo [1/3] Creating virtual environment (.venv)...
+    python -m venv .venv
+    if errorlevel 1 (
+        echo [ERROR] Failed to create virtual environment. Ensure Python is added to PATH.
+        goto END
+    )
+    echo [OK] Virtual environment created.
+) else (
+    echo [1/3] Virtual environment (.venv) already exists.
+)
+
+:: Step 2: Activate and upgrade pip
+echo.
+echo [2/3] Activating environment and upgrading pip...
+call .venv\Scripts\activate.bat
+python -m pip install --upgrade pip >nul 2>&1
+echo [OK] Pip upgraded to latest version.
+
+:: Step 3: Install requirements if present
+echo.
+if exist "requirements.txt" (
+    echo [3/3] Found requirements.txt. Installing dependencies...
+    pip install -r requirements.txt
+    echo [OK] All requirements installed successfully!
+) else (
+    echo [3/3] No requirements.txt found. Skipping package installation.
+    echo (Tip: Add a requirements.txt file to "%target_dir%" to automate future package installs.)
+)
+
+echo.
+echo ===================================
+echo   Environment Setup Complete!
+echo ===================================
+
+:END
+cd ..
+pause
+```
+
+### How to use it:
+
+1. Double-click **`setup_python_env.bat`**.
+    
+2. Press **Enter** to target `02_python`, or type the path to another folder (e.g., `projects\turismo-mapa`) and hit Enter.
+    
+3. The script will:
+    
+    - Create the `.venv` folder if it doesn't already exist.
+        
+    - Activate the virtual environment inside the batch session.
+        
+    - Upgrade `pip` silently.
+        
+    - Check for a `requirements.txt` file and automatically install all listed packages (e.g., `fastapi`, `uvicorn`, `pandas`).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+Yes! Placing `setup_python_env.bat` directly inside `01_python` makes total sense because that is where your `.venv` virtual environment lives.
+
+However, since you moved it directly into `01_python`, the script logic needs a small tweak: it shouldn't ask for a subfolder path anymore—it should just build/update the `.venv` in its current directory.
+
+## 1. Updated `setup_python_env.bat` (Local Version)
+
+Replace the contents of `setup_python_env.bat` in this folder with the following clean version:
+
+DOS
+
+```
+@echo off
+echo ===================================
+echo   Local Python Environment Setup
+echo ===================================
+echo.
+
+:: Step 1: Create .venv if it doesn't exist
+if not exist ".venv" (
+    echo [1/3] Creating virtual environment (.venv)...
+    python -m venv .venv
+    echo [OK] Virtual environment created.
+) else (
+    echo [1/3] Virtual environment (.venv) already exists.
+)
+
+:: Step 2: Activate & upgrade pip
+echo.
+echo [2/3] Activating environment and upgrading pip...
+call .venv\Scripts\activate.bat
+python -m pip install --upgrade pip
+
+:: Step 3: Install from requirements.txt if present
+echo.
+if exist "requirements.txt" (
+    echo [3/3] Installing dependencies from requirements.txt...
+    pip install -r requirements.txt
+    echo [OK] All libraries installed successfully!
+) else (
+    echo [3/3] No requirements.txt found yet.
+    echo (Create a requirements.txt file in this folder to auto-install libraries.)
+)
+
+echo.
+echo ===================================
+echo   Environment Setup Complete!
+echo ===================================
+pause
+```
+
+## 2. Understanding `requirements.txt` & Installing Libraries
+
+A `requirements.txt` file is just a plain text file that lists all Python libraries your project needs (like `pandas`, `fastapi`, `requests`, etc.).
+
+### Step-by-Step Guide:
+
+**1.Create requirements.txt:**Inside 01_python folder.
+
+Create a new file named `requirements.txt` right next to `setup_python_env.bat` and add the libraries you plan to use (one per line).
+
+For example, for data engineering and general labs:
+
+Plaintext
+
+```
+pandas
+numpy
+fastapi
+uvicorn
+requests
+```
+
+**2.Run the .bat Script:**Double-click setup_python_env.bat.
+
+Double-click `setup_python_env.bat`. It will automatically detect `requirements.txt` and install `pandas`, `numpy`, `fastapi`, etc., directly into your `.venv` folder.
+
+**3.Generating requirements.txt Automatically (Pro-Tip):**Whenever you install new packages manually.
+
+If you ever install libraries manually via terminal using `pip install pandas`, you can update your `requirements.txt` file instantly by opening terminal inside `01_python` (with `.venv` active) and running:
+
+DOS
+
+```
+pip freeze > requirements.txt
+```
+
+This exports all installed libraries and their exact versions so anyone (or another PC) can replicate your exact environment.
+
+## Important Reminder for Git
+
+Since `.venv` contains hundreds of megabytes of installed libraries, make sure `.venv/` is listed in your **`.gitignore`** file back in the root directory (`cs-engineer-workspace\.gitignore`).
+
+You **only want to commit `requirements.txt` and `setup_python_env.bat`** to GitHub, never the `.venv` folder itself!
+
+
+
+
+
+
+
+------------------
+
+
+Yes! Placing `setup_python_env.bat` directly inside `01_python` makes total sense because that is where your `.venv` virtual environment lives.
+
+However, since you moved it directly into `01_python`, the script logic needs a small tweak: it shouldn't ask for a subfolder path anymore—it should just build/update the `.venv` in its current directory.
+
+## 1. Updated `setup_python_env.bat` (Local Version)
+
+Replace the contents of `setup_python_env.bat` in this folder with the following clean version:
+
+DOS
+
+```
+@echo off
+echo ===================================
+echo   Local Python Environment Setup
+echo ===================================
+echo.
+
+:: Step 1: Create .venv if it doesn't exist
+if not exist ".venv" (
+    echo [1/3] Creating virtual environment (.venv)...
+    python -m venv .venv
+    echo [OK] Virtual environment created.
+) else (
+    echo [1/3] Virtual environment (.venv) already exists.
+)
+
+:: Step 2: Activate & upgrade pip
+echo.
+echo [2/3] Activating environment and upgrading pip...
+call .venv\Scripts\activate.bat
+python -m pip install --upgrade pip
+
+:: Step 3: Install from requirements.txt if present
+echo.
+if exist "requirements.txt" (
+    echo [3/3] Installing dependencies from requirements.txt...
+    pip install -r requirements.txt
+    echo [OK] All libraries installed successfully!
+) else (
+    echo [3/3] No requirements.txt found yet.
+    echo (Create a requirements.txt file in this folder to auto-install libraries.)
+)
+
+echo.
+echo ===================================
+echo   Environment Setup Complete!
+echo ===================================
+pause
+```
+
+## 2. Understanding `requirements.txt` & Installing Libraries
+
+A `requirements.txt` file is just a plain text file that lists all Python libraries your project needs (like `pandas`, `fastapi`, `requests`, etc.).
+
+### Step-by-Step Guide:
+
+**1.Create requirements.txt:**Inside 01_python folder.
+
+Create a new file named `requirements.txt` right next to `setup_python_env.bat` and add the libraries you plan to use (one per line).
+
+For example, for data engineering and general labs:
+
+Plaintext
+
+```
+pandas
+numpy
+fastapi
+uvicorn
+requests
+```
+
+**2.Run the .bat Script:**Double-click setup_python_env.bat.
+
+Double-click `setup_python_env.bat`. It will automatically detect `requirements.txt` and install `pandas`, `numpy`, `fastapi`, etc., directly into your `.venv` folder.
+
+**3.Generating requirements.txt Automatically (Pro-Tip):**Whenever you install new packages manually.
+
+If you ever install libraries manually via terminal using `pip install pandas`, you can update your `requirements.txt` file instantly by opening terminal inside `01_python` (with `.venv` active) and running:
+
+DOS
+
+```
+pip freeze > requirements.txt
+```
+
+This exports all installed libraries and their exact versions so anyone (or another PC) can replicate your exact environment.
+
+## Important Reminder for Git
+
+Since `.venv` contains hundreds of megabytes of installed libraries, make sure `.venv/` is listed in your **`.gitignore`** file back in the root directory (`cs-engineer-workspace\.gitignore`).
+
+You **only want to commit `requirements.txt` and `setup_python_env.bat`** to GitHub, never the `.venv` folder itself!

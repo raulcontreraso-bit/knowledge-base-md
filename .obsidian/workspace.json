@@ -4,81 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "b7a47cf2e05c73b4",
+        "id": "5f120b6f3a76cc1d",
         "type": "tabs",
         "children": [
           {
-            "id": "274dfc7d3d68842d",
+            "id": "fcf1140c6d66519c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ReadMe.MD/Readme 10.md",
+                "file": "ReadMe.MD/Sin nombre/Repository Structure Guide.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Readme 10"
-            }
-          },
-          {
-            "id": "ba36c6e5fdb057c1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ReadMe.MD/Readme 10.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Readme 10"
-            }
-          },
-          {
-            "id": "9662a120f986e556",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ReadMe.MD/Sin nombre/README.md V3 Working.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "README.md V3 Working"
-            }
-          },
-          {
-            "id": "fa0a612a3d18eb93",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ReadMe.MD/Sin nombre/README.md V3 Working.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "README.md V3 Working"
-            }
-          },
-          {
-            "id": "eea409a23af3160f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ReadMe.MD/Sin nombre/01 Profile Index.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "01 Profile Index"
+              "title": "Repository Structure Guide"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -246,14 +189,14 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "eea409a23af3160f",
+  "active": "fcf1140c6d66519c",
   "lastOpenFiles": [
+    "ReadMe.MD/Sin nombre/Python & Web Lab Readme.md",
     "ReadMe.MD/Sin nombre/README.md V3 Working.md",
-    "ReadMe.MD/Sin nombre/Sin título 3 1 1 1 1.md",
+    "ReadMe.MD/Sin nombre/01 Profile Index.md",
+    "ReadMe.MD/Sin nombre/Bages.md",
     "ReadMe.MD/Sin nombre/Academic Hub Readme.md",
     "ReadMe.MD/Sin nombre/Fiori Project Readme.md",
-    "ReadMe.MD/Sin nombre/Python & Web Lab Readme.md",
-    "ReadMe.MD/Sin nombre/01 Profile Index.md",
     "ReadMe.MD/Sin nombre/Repository Structure Guide.md",
     "ReadMe.MD/README.md V2.md",
     "ReadMe.MD/Sin nombre",

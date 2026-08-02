@@ -1858,3 +1858,145 @@ You're all set to write and run Python code in a clean, isolated environment!
 
 
 
+---
+Awesome! 🎉
+
+Now that your local environment script is working smoothly and your `.venv` is created, you have a solid foundation set up.
+
+### Your Final Checklist for this Setup:
+
+1. **Verify `.gitignore`:** Ensure `.venv/` is listed in your main `.gitignore` file (in `cs-engineer-workspace\.gitignore`) so you don't push thousands of environment files to GitHub.
+    
+2. **Add libraries when needed:** Whenever you start a new Python topic, just add the library names (like `pandas`, `requests`, `matplotlib`, `fastapi`) to `requirements.txt` and double-click `setup_python_env.bat` (or run `.\setup_python_env.bat`) to update your environment.
+    
+3. **Select Interpreter in VS Code:**
+    
+    - Open VS Code in `01_python`.
+        
+    - Press `Ctrl + Shift + P` (or `Cmd + Shift + P` on Mac).
+        
+    - Type **Python: Select Interpreter**.
+        
+    - Choose the one pointing to `.\.venv\Scripts\python.exe`.
+        
+
+You're all set to write and run Python code in a clean, isolated environment!
+
+
+---
+Here is a quick Python script to test whether `pandas` and `requests` are imported properly from your active `.venv`, along with a check that displays the exact paths where Python is loading them from.
+
+### `test_env.py`
+
+Create a file named **`test_env.py`** inside your `01_python` folder and paste this code:
+
+Python
+
+```
+import sys
+
+print("===================================")
+print("   PYTHON ENVIRONMENT TEST")
+print("===================================\n")
+
+# 1. Print current Python interpreter being used
+print(f"🐍 Python Executable: {sys.executable}\n")
+
+# 2. Test pandas import
+try:
+    import pandas as pd
+    print(f"✅ pandas (v{pd.__version__}) imported successfully!")
+    print(f"   Path: {pd.__file__}\n")
+except ImportError as e:
+    print(f"❌ Failed to import pandas: {e}\n")
+
+# 3. Test requests import
+try:
+    import requests
+    print(f"✅ requests (v{requests.__version__}) imported successfully!")
+    print(f"   Path: {requests.__file__}\n")
+except ImportError as e:
+    print(f"❌ Failed to import requests: {e}\n")
+
+print("===================================")
+```
+
+### How to Run It:
+
+#### In your PowerShell terminal:
+
+Make sure your environment is activated, then run:
+
+PowerShell
+
+```
+python test_env.py
+```
+
+#### Expected Output:
+
+If everything is wired up correctly to your virtual environment, the paths should point inside your `.venv` folder:
+
+Plaintext
+
+```
+===================================
+   PYTHON ENVIRONMENT TEST
+===================================
+
+🐍 Python Executable: C:\Users\raulc\Desktop\Main_Repo\cs-engineer-workspace\02_computer_languages\01_python\.venv\Scripts\python.exe
+
+✅ pandas (v2.2.0) imported successfully!
+   Path: ...\01_python\.venv\Lib\site-packages\pandas\__init__.py
+
+✅ requests (v2.31.0) imported successfully!
+   Path: ...\01_python\.venv\Lib\site-packages\requests\__init__.py
+
+===================================
+```
+
+
+
+
+-----
+
+Look at the bottom right corner of your VS Code window!
+
+You can see **`.venv (3.14.5.final.0)`** right there in the status bar. That means **VS Code is already using your `.venv`!**
+
+### Why doesn't `.venv` appear in the file tree on the left?
+
+In your left panel tree:
+
+Plaintext
+
+```
+02_computer_languages\01_python
+ ├── .venv                      <-- IT IS THERE!
+ ├── 01_core_python
+```
+
+1. **It IS in the left panel:** Right under `02_computer_languages\01_python`, there is `.venv`. It looks slightly dimmed or grayed out because Git is ignoring it (which is standard behavior for `.gitignore` files!).
+    
+2. **Hidden Files Setting:** If VS Code ever hides dot-folders completely, it's usually because VS Code or `.gitignore` dims hidden folders.
+    
+
+### Two Quick Checks:
+
+#### 1. Run the test script inside VS Code
+
+Press **`Ctrl + ~`** (or go to **Terminal > New Terminal** in the top menu) and run:
+
+PowerShell
+
+```
+python 02_computer_languages\01_python\01_core_python\ww.py
+```
+
+#### 2. Confirm VS Code Interpreter Selection
+
+Click directly on **`.venv (3.14.5.final.0)`** at the bottom right of your screen. A dropdown will open at the top listing all Python environments, confirming that it has automatically picked your local `.venv`.
+
+
+
+

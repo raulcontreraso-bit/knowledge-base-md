@@ -44,3 +44,85 @@ Here are the direct links to the Google tools we've discussed, along with a few 
 - **Google App Engine**: [cloud.google.com/appengine](https://cloud.google.com/appengine)
     
     - _What it is_: A fully managed serverless platform built into Google Cloud that lets you deploy web apps in languages like Python, Java, Node.js, and PHP without managing servers.
+Yes, you can change your **GitHub account username**, but there are important things you need to know before doing it.
+
+### How to Change Your GitHub Username:
+
+1. Log into **GitHub.com**.
+    
+2. Click your **profile picture** in the upper-right corner, then click **Settings**.
+    
+3. In the left sidebar, click **Account**.
+    
+4. Look for the **Change username** section and click the button.
+    
+5. Read the warnings, click **I understand, let's change my username**, type your new username, and confirm.
+    
+
+### Important Things That Happen When You Change It:
+
+- **Repository URLs**: GitHub automatically sets up redirects from your old repository links to your new ones. However, to avoid future issues, you should update the remote URL on your local computer's terminal for any active projects:
+    
+    Bash
+    
+    ```
+    git remote set-url origin https://github.com/your-new-username/your-repo-name.git
+    ```
+    
+- **Old Username Becomes Available**: Once you change your username, your old username is immediately released. Anyone else on GitHub can claim it, and **GitHub will not redirect your old profile page**.
+    
+- **Links & Badges**: Links to your personal profile page or `@mentions` in issues/pull requests from other users will break and will not automatically redirect.
+
+Finding a clean, tech-focused handle that bridges your name (`raulcontreraso`) with something generic or IT-oriented is a great move for a professional developer profile.
+
+Here are a few structured naming formulas you can use, along with ideas inspired by your current handle:
+
+### 1. Initials + Tech / IT Focus
+
+- `dev_rcontreras`
+    
+- `rc_devops`
+    
+- `rcontreras_code`
+    
+- `it_rc`
+    
+
+### 2. Role or Industry-Based (Clean & Professional)
+
+- `devops_raco` (similar to your idea)
+    
+- `code_raco`
+    
+- `cloud_rc`
+    
+- `sys_raco`
+    
+
+### 3. Abstract / Modern Developer Handles
+
+- `raco_bytes`
+    
+- `rc_syntax`
+    
+- `null_raco`
+    
+- `bit_raco` (keeping a nod to your old `-bit` suffix)
+    
+
+### How to Change Your GitHub Username (Quick Reminder)
+
+Once you pick a new name:
+
+1. Go to GitHub **Settings** > **Account** > **Change username**.
+    
+2. Update your local machine's remote URL in your project terminal so it points to the new path:
+    
+    Bash
+    
+    ```
+    git remote set-url origin https://github.com/your-new-username/your-repo-name.git
+    ```
+    
+
+Do you lean more toward keeping a piece of your initials (like `rc`) or going completely abstract with something like `devops_raco`?

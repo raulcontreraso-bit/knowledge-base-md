@@ -2171,3 +2171,56 @@ pause
 - **Branch Name:** Replace `main` with your target branch (e.g., `master` or `dev`) if you aren't using `main`.
     
 - **Running the File:** Save the file with a `.bat` extension (e.g., `git_push.bat`). You can double-click it to run it anytime.
+
+
+----
+
+To link your main **profile README** (`raulcontreraso-bit/README.md`) directly to the subfolder or `README.md` file in your workspace repository (`cs-engineer-workspace`), you need to use Markdown link syntax with the exact GitHub URL.
+
+### Step 1: Get the Target URL
+
+From your second image, the exact relative path in your repository is:
+
+`02_computer_languages/01_python/01_core_python`
+
+Your target full URL on GitHub is:
+
+Plaintext
+
+```
+https://github.com/raulcontreraso-bit/cs-engineer-workspace/tree/main/02_computer_languages/01_python/01_core_python
+```
+
+_(If you want to link directly to the `README.md` file inside that folder, replace `/tree/` with `/blob/` and add `/README.md` at the end, though GitHub automatically renders the README when viewing the folder)._
+
+### Step 2: Edit Your Profile README (`README.md`) in VS Code
+
+Open your local profile repo (`raulcontreraso-bit`) in **VS Code**, open `README.md`, and locate the bullet point:
+
+Markdown
+
+```
+* **Python Engineering**: FastAPI, data integration, and automation.
+```
+
+Change it to:
+
+Markdown
+
+```
+* [Python Engineering](https://github.com/raulcontreraso-bit/cs-engineer-workspace/tree/main/02_computer_languages/01_python/01_core_python): FastAPI, data integration, and automation.
+```
+
+### Step 3: Push the Changes Using Git
+
+Open the terminal in VS Code (inside your `raulcontreraso-bit` repository folder) and run:
+
+Bash
+
+```
+git add README.md
+git commit -m "Add link to Python Engineering folder"
+git push origin main
+```
+
+Once pushed, clicking **Python Engineering** on your GitHub profile page will navigate straight to your `01_core_python` folder in `cs-engineer-workspace`.

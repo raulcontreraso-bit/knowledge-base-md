@@ -545,3 +545,384 @@ pause
 1. **`git add "cs-engineer-workspace\02_python"`**: Tells Git to stage modified, deleted, or new files exclusively inside the `02_python` folder. Any edits made in other directories (like `03_fiori` or `projects`) will be ignored for this commit.
     
 2. **`[02_python] %msg%`**: Automatically prefixes your commit message with `[02_python]` so your Git commit history stays clean and organized by module.
+
+
+
+---
+
+
+
+
+
+
+
+
+
+Here is the corrected batch script.
+
+To add a prefix (like `[02_python]` or `[Workspace Update]`) to your commit message and use a default fallback message if you hit Enter, you can handle the `set /p` prompt like this:
+
+### Option A: Fixed Prefix + Custom Message
+
+This script automatically prefixes **whatever you type** (or uses "Routine update" if left blank) with `[Workspace Update]`:
+
+DOS
+
+```
+@echo off
+echo ===================================
+echo    Syncing Workspace with GitHub
+echo ===================================
+echo.
+
+:: Step 1: Stage all changes
+git add .
+echo [OK] All changes staged.
+echo.
+
+:: Ask for commit message with a fallback default
+set "user_msg="
+set /p user_msg="Enter commit message (Press ENTER for default): "
+
+:: If input is empty, set a default message
+if "%user_msg%"=="" set user_msg=Routine update
+
+:: Combine prefix with the user message
+set "msg=[Workspace Update] %user_msg%"
+
+:: Step 2: Commit changes
+git commit -m "%msg%"
+echo.
+
+:: Step 3: Push to GitHub
+echo Pushing changes to GitHub...
+git push
+echo.
+
+echo ===================================
+echo    Repository Updated Successfully!
+echo ===================================
+pause
+```
+
+### Option B: Interactive Choice for Folder Prefixes
+
+If you want to **choose** which section prefix to attach before committing:
+
+DOS
+
+```
+@echo off
+echo ===================================
+echo    Syncing Workspace with GitHub
+echo ===================================
+echo.
+
+:: Select Prefix
+echo Select a module prefix:
+echo 1) [Workspace]
+echo 2) [02_python]
+echo 3) [03_fiori]
+echo 4) [Projects]
+echo.
+set /p choice="Choose (1-4, default is 1): "
+
+set "prefix=[Workspace]"
+if "%choice%"=="2" set "prefix=[02_python]"
+if "%choice%"=="3" set "prefix=[03_fiori]"
+if "%choice%"=="4" set "prefix=[Projects]"
+
+:: Step 1: Stage all changes
+git add .
+echo [OK] All changes staged.
+echo.
+
+:: Ask for custom message
+set "user_msg="
+set /p user_msg="Enter commit description: "
+if "%user_msg%"=="" set user_msg=Updated workspace files
+
+set "msg=%prefix% %user_msg%"
+
+:: Step 2: Commit changes
+git commit -m "%msg%"
+echo.
+
+:: Step 3: Push to GitHub
+echo Pushing changes to GitHub...
+git push
+echo.
+
+echo ===================================
+echo    Repository Updated Successfully!
+echo ===================================
+pause
+```
+
+### Fixes made from your draft:
+
+1. **Removed `echo` before `set /p`:** In Windows batch files, `echo set /p ...` prints the code itself as plain text instead of asking for user input.
+    
+2. **Fixed assignment spacing:** In batch files, `msg= "..."` (with a space) creates a variable with a space in its name (`%msg %`). Using `set "msg=..."` prevents string variable bugs.
+
+
+
+--------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Here is the corrected batch script.
+
+To add a prefix (like `[02_python]` or `[Workspace Update]`) to your commit message and use a default fallback message if you hit Enter, you can handle the `set /p` prompt like this:
+
+### Option A: Fixed Prefix + Custom Message
+
+This script automatically prefixes **whatever you type** (or uses "Routine update" if left blank) with `[Workspace Update]`:
+
+DOS
+
+```
+@echo off
+echo ===================================
+echo    Syncing Workspace with GitHub
+echo ===================================
+echo.
+
+:: Step 1: Stage all changes
+git add .
+echo [OK] All changes staged.
+echo.
+
+:: Ask for commit message with a fallback default
+set "user_msg="
+set /p user_msg="Enter commit message (Press ENTER for default): "
+
+:: If input is empty, set a default message
+if "%user_msg%"=="" set user_msg=Routine update
+
+:: Combine prefix with the user message
+set "msg=[Workspace Update] %user_msg%"
+
+:: Step 2: Commit changes
+git commit -m "%msg%"
+echo.
+
+:: Step 3: Push to GitHub
+echo Pushing changes to GitHub...
+git push
+echo.
+
+echo ===================================
+echo    Repository Updated Successfully!
+echo ===================================
+pause
+```
+
+### Option B: Interactive Choice for Folder Prefixes
+
+If you want to **choose** which section prefix to attach before committing:
+
+DOS
+
+```
+@echo off
+echo ===================================
+echo    Syncing Workspace with GitHub
+echo ===================================
+echo.
+
+:: Select Prefix
+echo Select a module prefix:
+echo 1) [Workspace]
+echo 2) [02_python]
+echo 3) [03_fiori]
+echo 4) [Projects]
+echo.
+set /p choice="Choose (1-4, default is 1): "
+
+set "prefix=[Workspace]"
+if "%choice%"=="2" set "prefix=[02_python]"
+if "%choice%"=="3" set "prefix=[03_fiori]"
+if "%choice%"=="4" set "prefix=[Projects]"
+
+:: Step 1: Stage all changes
+git add .
+echo [OK] All changes staged.
+echo.
+
+:: Ask for custom message
+set "user_msg="
+set /p user_msg="Enter commit description: "
+if "%user_msg%"=="" set user_msg=Updated workspace files
+
+set "msg=%prefix% %user_msg%"
+
+:: Step 2: Commit changes
+git commit -m "%msg%"
+echo.
+
+:: Step 3: Push to GitHub
+echo Pushing changes to GitHub...
+git push
+echo.
+
+echo ===================================
+echo    Repository Updated Successfully!
+echo ===================================
+pause
+```
+
+### Fixes made from your draft:
+
+1. **Removed `echo` before `set /p`:** In Windows batch files, `echo set /p ...` prints the code itself as plain text instead of asking for user input.
+    
+2. **Fixed assignment spacing:** In batch files, `msg= "..."` (with a space) creates a variable with a space in its name (`%msg %`). Using `set "msg=..."` prevents string variable bugs.
+
+
+The error `fatal: pathspec 'cs-engineer-workspace\02_python' did not match any files` happens because of your **current working folder**.
+
+Since `update_python.bat` is running **inside** `cs-engineer-workspace` (as shown in your File Explorer path at the top), Windows looks for `cs-engineer-workspace\cs-engineer-workspace\02_python`, which doesn't exist.
+
+Inside this folder, the path is simply **`02_python`**.
+
+### Corrected `update_python.bat`
+
+Here is the fixed code. Open `update_python.bat` in Notepad, replace its content with this, and save:
+
+DOS
+
+```
+@echo off
+echo ===================================
+echo   Syncing 02_python with GitHub
+echo ===================================
+echo.
+
+:: Step 1: Stage changes ONLY inside 02_python
+git add "02_python"
+echo [OK] Staging changes in 02_python...
+echo.
+
+:: Ask for commit message
+set /p msg="Enter a commit message for Python changes: "
+
+:: Step 2: Commit only staged files in that folder
+git commit -m "[02_python] %msg%"
+echo.
+
+:: Step 3: Push changes to GitHub
+echo Pushing changes to GitHub...
+git push
+echo.
+
+echo ===================================
+echo   Python Folder Synced Successfully!
+echo ===================================
+pause
+```
+
+### Rule of thumb:
+
+- If running from **inside** `cs-engineer-workspace`, use `git add "02_python"`.
+    
+- If running from the parent directory (`Main_Repo`), use `git add "cs-engineer-workspace\02_python"`.
+
+You are thinking ahead, and that is a great setup! Setting up a `.gitignore`, Python virtual environments, and workspace-specific VS Code settings is essential to keep your repository clean and ensure VS Code automatically selects the right Python interpreter based on which folder you are working in.
+
+Here is how to set up all three components cleanly:
+
+## 1. Create a `.gitignore` File
+
+You don't want to commit compiled Python files (`__pycache__`), virtual environments (`.venv`), or temporary IDE caches to GitHub.
+
+Create a file named **`.gitignore`** in the root directory (`C:\Users\raulc\Desktop\Main_Repo\cs-engineer-workspace`) and add the following:
+
+Code snippet
+
+```
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python Virtual Environments
+.venv/
+env/
+venv/
+ENV/
+
+# VS Code directory settings (except project workspace settings if you share them)
+.vscode/*.log
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Environment variables & secrets
+.env
+```
+
+## 2. Setting Up Python Virtual Environments (`.venv`)
+
+For python projects (like in `02_python` or `projects/turismo-mapa`), it is best practice to create isolated virtual environments so dependencies don't collide.
+
+Inside your folder (for example `02_python`), open PowerShell/Command Prompt and run:
+
+PowerShell
+
+```
+# Navigate to your target folder
+cd 02_python
+
+# Create the virtual environment named .venv
+python -m venv .venv
+```
+
+_(Because `.venv` is in your `.gitignore`, Git will automatically ignore this folder, keeping your GitHub repository small and fast!)_
+
+## 3. Configuring VS Code Settings (`.vscode/settings.json`)
+
+To make VS Code automatically use the virtual environment for python files in specific folders, you can set up workspace settings.
+
+In the root of your project (`cs-engineer-workspace`), create a hidden folder named `.vscode` and place a file inside called `settings.json`:
+
+`cs-engineer-workspace\.vscode\settings.json`
+
+JSON
+
+```
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/02_python/.venv/Scripts/python.exe",
+  "python.terminal.activateEnvironment": true,
+  "editor.formatOnSave": true,
+  "python.formatting.provider": "black",
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true
+  }
+}
+```
+
+### Pro-Tip for Multi-Folder Python Environments:
+
+If you have multiple folders with their own separate environments (e.g., one in `02_python` and one in `projects/turismo-mapa`), you can use a **VS Code Multi-Root Workspace**:
+
+1. In VS Code, go to **File > Save Workspace As...** and save `cs-engineer-workspace.code-workspace`.
+    
+2. This allows you to define unique Python interpreters for individual sub-folders directly in the workspace configuration file.

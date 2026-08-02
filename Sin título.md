@@ -122,3 +122,10 @@ Inside each topic directory (e.g., `01_web_fundamentals/README.md`), use this st
 ## 💻 Code Exercises
 - [Exercise 01](./exercises/01_basic_script.ext)
 ```
+
+
+
+
+Yes! If you want this to show up directly on your main GitHub profile page, create a special repository named after your exact **GitHub username** (e.g., `username/username`).
+
+Put this `README.md` file in the main folder (root) of that repository, make sure the repo is set to **Public**, and GitHub will automatically display it on your main profile!

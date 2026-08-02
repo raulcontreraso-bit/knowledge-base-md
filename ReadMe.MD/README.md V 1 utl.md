@@ -442,3 +442,192 @@ When you run commands, items move through the workspace like this:
 2. You run `git add <filename>` to move those changes from the workspace into the **Staging Area**.
     
 3. You run `git commit` to save the staged changes permanently into the **Repository**.
+
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+That is an exceptionally clean and elegant solution. Using your main profile `README.md` as a portfolio hub and linking directly down into individual subfolders (like your Python, architecture, or database courses) turns your repository into an interactive, self-hosted portfolio and knowledge base.
+
+To make this structure work seamlessly on GitHub, you use **relative paths** in your Markdown links.
+
+### How to Link `.md` Files from Other Folders
+
+Depending on where your main `README.md` is located relative to the file you want to link, here is the syntax you use:
+
+#### 1. Linking from the Root `README.md` to a Subfolder README
+
+If your main `README.md` is at the root of `cs-engineer-workspace/` and you want to point to your Python course README, use the folder path directly:
+
+Markdown
+
+```
+* [Python Course & Exercises](03_python/README.md)
+```
+
+#### 2. Linking from a Subfolder README Back to the Root (or another folder)
+
+If you are inside `03_python/README.md` and want to link back to your main portfolio profile or another folder, use `../` to step up one directory level:
+
+Markdown
+
+```
+* [⬅ Back to Main Portfolio](../../README.md)
+* [Go to Databases Course](../04_databases/README.md)
+```
+
+### Example Structure for Your Main `README.md`
+
+Your root `README.md` can look something like this to tie everything together cleanly:
+
+Markdown
+
+```
+# Hi, I'm Raúl Contreras 👋 
+## Software Engineer & Computer Science Professional (Ingeniero en Informática)
+
+Welcome to my personal workspace repository (`cs-engineer-workspace`). This is where I track my core studies, architectural experiments, code exercises, and active development projects.
+
+---
+
+## 🚀 Featured Projects
+* [Project Alpha](projects/project-alpha/README.md) - A brief description of what it does.
+* [Project Beta](projects/project-beta/README.md) - Built with FastAPI and Jupyter Lite.
+
+---
+
+## 📚 Courses & Study Tracks
+
+* **[Python Core, FastAPI & Django](03_python/README.md)**
+  * *Status:* Completed / Active
+  * *Includes:* Advanced notes, exercises, and [Jupyter Lite Notebooks](03_python/notes/example.ipynb).
+* **[Databases & System Design](04_databases/README.md)**
+  * *Status:* In Progress
+```
+
+### Why this setup rocks:
+
+1. **Portable:** Because these are relative links, they work perfectly whether you are reading them locally in VS Code, viewing them on GitHub, or rendering them via GitHub Pages.
+    
+2. **Interactive Notes:** Embedding links to Jupyter Lite or external course platforms right inside your subfolder READMEs gives you a single click-through path from high-level CV all the way down to a specific line of code or notebook.
+
+
+
+
+----
+
+
+
+
+
+
+To keep your main profile clean and uncluttered while putting the spotlight on your course folders and projects, you can use a **minimalist, high-level summary approach** on your root `README.md`.
+
+Instead of listing every single exercise, note, or sub-link on the front page, your root page acts purely as an executive dashboard. Visitors see your bio and a clean directory of your major tracks, and they click into a folder to dive into the details.
+
+Here is how you can structure your root `README.md` to achieve that clean look:
+
+### Example Root `README.md` (Clean & Minimalist)
+
+Markdown
+
+```
+# Raúl Contreras 
+### Software Engineer | Ingeniero en Informática
+
+> Personal workspace for system architecture, software development tracks, and practical engineering projects.
+
+---
+
+## 🛠️ Engineering Tracks & Courses
+
+*   🐍 **[Python Core & Web Frameworks](03_python/README.md)**  
+    *Advanced Python, FastAPI, Django, and data processing notes & exercises.*
+*   🗄️ **[Databases & System Design](04_databases/README.md)**  
+    *Relational/NoSQL design patterns, query optimization, and architecture notes.*
+*   ☁️ **[Cloud & DevOps](05_devops/README.md)**  
+    *Containerization, CI/CD pipelines, and infrastructure experiments.*
+
+---
+
+## 🚀 Active Projects
+
+*   ⚡ **[Project Alpha](projects/project-alpha/)** — Brief one-sentence summary of the tech stack and goal.
+*   📊 **[Project Beta](projects/project-beta/)** — Integrated with Jupyter Lite for interactive data analysis.
+
+---
+```
+
+### How this keeps it clean:
+
+1. **The Front Page Stays Short:** A visitor can scan your entire background, your core skills, and your repository layout in just a few seconds without scrolling endlessly.
+    
+2. **The Folders Do the Heavy Lifting:** When someone clicks on `03_python/README.md`, _that_ page expands into the detailed breakdown—listing specific notes, external course links, and Jupyter Lite notebooks for Python alone.
+    
+3. **Easy Maintenance:** If you add a new exercise or note inside the Python folder tomorrow, you don't need to touch your main profile `README.md` at all.
+---
+
+
+
+
+
+
+
+
+Ah, changing your **GitHub username** (`raulcontreraso-bit` to something more professional like `raulcontreraso`)! That makes total sense. Moving away from a default-looking or auto-generated username to your clean, real name elevates your profile significantly.
+
+Here is how to change your GitHub username and what you need to update locally afterward.
+
+### Step 1: Change Your Username on GitHub
+
+1. Go to [GitHub](https://github.com/) and log in.
+    
+2. Click your profile picture in the top-right corner, then click **Settings**.
+    
+3. In the left sidebar, scroll down to the bottom and click **Account** (under the "Access" or general section).
+    
+4. Look for the **Change username** section and click the **Change username** button.
+    
+5. Read the warning prompt (GitHub explains that your old profile link will stop working, though they automatically redirect repository links for a while), enter your new desired username, and confirm.
+    
+
+### Step 2: Update Your Local Git Repositories
+
+Because your GitHub account URL will change, your local computer's link to the repository will break until you update it.
+
+Open your terminal inside your project folder (`cs-engineer-workspace`) and run this command (replace `NEW_USERNAME` with your actual new username):
+
+Bash
+
+```
+git remote set-url origin https://github.com/NEW_USERNAME/cs-engineer-workspace.git
+```
+
+Verify that it updated correctly by running:
+
+Bash
+
+```
+git remote -v
+```
+
+### ⚠️ Important Things to Keep in Mind After Changing Your Username
+
+- **Old Profile Links:** Anyone clicking your old profile link (`[github.com/raulcontreraso-bit](https://github.com/raulcontreraso-bit)`) will get a 404 error unless you set up a redirect or profile readme redirection, so be sure to update your links on LinkedIn, your CV, or your email signature.
+    
+- **Repository Redirects:** GitHub is smart and _will_ temporarily redirect traffic from your old repository URLs to your new ones, but it's always best practice to update your local remotes immediately so your pushes and pulls go to the right place without hiccups.

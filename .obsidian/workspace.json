@@ -99,11 +99,11 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Sin título.md",
+                "file": "ReadMe.MD/Sin nombre/Repository bat.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
@@ -174,8 +174,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -189,7 +188,7 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "fcf1140c6d66519c",
+  "active": "ab679797ff1d8be7",
   "lastOpenFiles": [
     "ReadMe.MD/Sin nombre/Repository Structure Guide 1 1.md",
     "ReadMe.MD/Sin nombre/Repository bat.md",

@@ -866,3 +866,53 @@ Once the Node API is live, your Android app will connect to the exact same REST 
 ### Single Question to Guide Us Forward:
 
 Shall we start by initializing the local **PostgreSQL database tables** and running the **Node.js server** on your machine first?
+
+
+
+
+----
+
+To tell which `.html` file goes with which `.js` file, you can look for **direct script tags**, **dynamic DOM element selectors**, or **shared naming conventions**.
+
+Here are the most reliable ways to connect them by looking at your code:
+
+### 1. Look for `<script>` Tags in the HTML (The Direct Link)
+
+The absolute easiest way to know which JavaScript file belongs to an HTML page is to check the bottom of the `<body>` tag in that specific `.html` file.
+
+For example, in your **`pages/books.html`**, you will see:
+
+HTML
+
+```
+  <script src="../js/sidebar.js"></script>
+  <script src="../js/footer.js"></script>
+  <script src="../js/books-manager.js"></script> <!-- 👈 This HTML relies on this JS -->
+```
+
+This tells you instantly that `books.html` executes `books-manager.js`.
+
+### 2. Look for Unique Element IDs (`document.getElementById`) inside the JS
+
+If you open a JavaScript file (like `books-manager.js`) and look at the top, it searches the HTML page for specific element IDs to attach event listeners or render data:
+
+JavaScript
+
+```
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('add-book-form');          // 👈 Looks for id="add-book-form"
+  const container = document.getElementById('books-list-container'); // 👈 Looks for id="books-list-container"
+```
+
+If you search your codebase for `add-book-form`, you will find it only inside `pages/books.html`. That unique match proves the JS file is written specifically for that HTML view.
+
+### 3. File Naming Conventions
+
+In most well-structured projects (including your CS Vault workspace), developers use matching names to keep things organized:
+
+- **`pages/books.html`** pairs with **`js/books-manager.js`** (or `books.js`)
+    
+- **`pages/courses.html`** would pair with **`js/courses-manager.js`**
+    
+
+Whenever you create a new page, giving the JavaScript file a matching prefix makes the pairing obvious at a glance in your VS Code file explorer.

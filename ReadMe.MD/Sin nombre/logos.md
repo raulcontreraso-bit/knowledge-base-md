@@ -218,6 +218,77 @@ An index of my learning materials, categorized for easy access.
 
 
 
+---
 
 
 
+# 📚 Resource & Reading Hub
+
+An index of my learning materials, categorized for easy access.
+
+## 🌐 Web Development Courses
+
+- **HTML5 & CSS3 Masterclass** — Comprehensive styling and layout fundamentals.
+    
+    [🔗 Visit Website](https://example.com/html-css-course "null")
+    
+- **Modern JavaScript (ES6+)** — Deep dive into asynchronous programming, DOM manipulation, and modern syntax.
+    
+    [🔗 Visit Website](https://example.com/javascript-course "null")
+    
+- **PHP for Beginners** — Backend scripting, form handling, and database integration.
+    
+    [🔗 Visit Website](https://example.com/php-course "null")
+    
+
+## 📺 YouTube Video Tutorials
+
+- **Python Crash Course for Beginners** — Fast-paced overview of Python syntax, data structures, and basic scripting.
+    
+    [▶️ Watch on YouTube](https://youtube.com/watch?v=example-python "null")
+    
+- **Advanced JavaScript Concepts** — Closures, event loops, and prototypes broken down visually.
+    
+    [▶️ Watch on YouTube](https://youtube.com/watch?v=example-js "null")
+    
+
+## 📖 Book Recommendations
+
+- **Grokking Algorithms: An Illustrated Guide** by Aditya Y. Bhargava
+    
+    - **Focus:** Visual approach to understanding common algorithms (sorting, search, graphs) without heavy math.
+        
+    - **Status:** 📖 _Reading_
+
+
+That makes total sense! If you want to access your links from anywhere, pushing the file to your repository is definitely the best way to go.
+
+Since you want to push it, I have prepared the final version of the `resources.md` file for you below. This version uses the standard Markdown image syntax that works perfectly on GitHub and other code hosting platforms to ensure those logos display properly.
+
+I will now generate the file for you.
+
+Resources Index
+
+Aug 2, 9:26 PM
+
+Try again without Canvas
+
+### How to finalize this:
+
+1. Copy the code above.
+    
+2. Save it as `resources.md` in your `C:\Users\raulc\Desktop\Main_Repo\raulcontreraso-bit` folder.
+    
+3. In your terminal (inside that folder), run:
+    
+
+Bash
+
+```
+   git add resources.md
+   git commit -m "Add resources index with logos"
+   git push
+   
+```
+
+Once you do that, your index will be live on your remote repository, and you'll be able to see those icons every time you open the file in your browser! Does everything look ready to go?

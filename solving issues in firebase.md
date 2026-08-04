@@ -121,3 +121,72 @@ firebase --version
 ```
 
 _(If version is below 13.7.0, run `npm install -g firebase-tools@latest`)_
+
+
+
+Here is a breakdown of those terms and what that command actually does:
+
+### 1. What is "Full CRUD"?
+
+**CRUD** is an acronym for the four basic operations you perform on persistent data in any database or application:
+
+|**Letter**|**Operation**|**Meaning**|**SQL Equivalent**|**GraphQL / Data Connect Equivalent**|
+|---|---|---|---|---|
+|**C**|**Create**|Adding new records|`INSERT`|`user_insert`, `reservation_insert`|
+|**R**|**Read**|Fetching/viewing records|`SELECT`|`query { users { id name } }`|
+|**U**|**Update**|Modifying existing records|`UPDATE`|`reservation_update`|
+|**D**|**Delete**|Removing records|`DELETE`|`reservation_delete`|
+
+When a web app supports **"Full CRUD"**, it means users can perform all four of these operations directly from the user interface without having to touch the database directly.
+
+### 2. What are "Mutations"?
+
+In GraphQL (which Firebase Data Connect uses on top of SQL), operations are split into two main types:
+
+- **Queries:** Read-only operations. Fetching data from the database without altering anything (like a `SELECT` statement).
+    
+- **Mutations:** Operations that **modify** data on the server or database. Any time you **Insert**, **Update**, or **Delete** a row, you execute a **Mutation**.
+    
+
+GraphQL
+
+```
+# This is a MUTATION because it changes database state (inserts a new book)
+mutation AddBook {
+  book_insert(data: { title: "Clean Code", author: "Uncle Bob", status: "Available" })
+}
+```
+
+### 3. What does `npx serve public` do?
+
+Breakdown of the command:
+
+- **`npx`**: A tool bundled with Node.js that lets you download and run a temporary command-line tool without installing it permanently on your system.
+    
+- **`serve`**: A lightweight web server package designed to serve static assets (HTML, CSS, JavaScript, images).
+    
+- **`public`**: The target folder containing your `index.html` file.
+    
+
+Executing `npx serve public` starts a local web server running on your computer that hosts the files in your `public` folder at a local URL like `http://localhost:3000`.
+
+### Is `npx serve public` for local use only?
+
+**Yes, it is primarily meant for local development.**
+
+- **Why it's local:** Running `serve` on your machine only listens on your computer's local loopback network (`localhost` or `127.0.0.1`). People on the internet cannot access your website this way because your local network and firewall block external access.
+    
+- **For Production:** When you are ready to publish your website to the real internet so anyone can visit it, you would deploy your `public` folder to a production web host like **Firebase Hosting** (`firebase deploy`), Vercel, or Netlify.
+
+
+
+
+
+
+
+
+
+
+
+
+

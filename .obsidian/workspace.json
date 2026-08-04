@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Prompt anti  Guessing.md",
+                "file": "solving issues in firebase.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Prompt anti  Guessing"
+              "title": "solving issues in firebase"
             }
           }
         ],
@@ -248,9 +248,10 @@
   },
   "active": "255e28e3c719a996",
   "lastOpenFiles": [
+    "WEB.md",
     "solving issues in firebase.md",
-    "Prompt anti  Guessing.md",
     "webbbb.md",
+    "Prompt anti  Guessing.md",
     "ReadMe.MD/Sin nombre/logos.md",
     "ReadMe.MD/Sin nombre/Repository bat.md",
     "ReadMe.MD/Sin nombre/Python & Web Lab Readme.md",
@@ -271,7 +272,6 @@
     "Sin título 2.md",
     "Sin título 1.md",
     "Sin título.md",
-    "WEB.md",
     "ReadMe.MD",
     "phython online options.md",
     "Integrating GitHub Copilot with Visual Studio Code.md",

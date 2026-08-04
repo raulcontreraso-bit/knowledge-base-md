@@ -130,12 +130,12 @@ Here is a breakdown of those terms and what that command actually does:
 
 **CRUD** is an acronym for the four basic operations you perform on persistent data in any database or application:
 
-|**Letter**|**Operation**|**Meaning**|**SQL Equivalent**|**GraphQL / Data Connect Equivalent**|
-|---|---|---|---|---|
-|**C**|**Create**|Adding new records|`INSERT`|`user_insert`, `reservation_insert`|
-|**R**|**Read**|Fetching/viewing records|`SELECT`|`query { users { id name } }`|
-|**U**|**Update**|Modifying existing records|`UPDATE`|`reservation_update`|
-|**D**|**Delete**|Removing records|`DELETE`|`reservation_delete`|
+| **Letter** | **Operation** | **Meaning**                | **SQL Equivalent** | **GraphQL / Data Connect Equivalent** |
+| ---------- | ------------- | -------------------------- | ------------------ | ------------------------------------- |
+| **C**      | **Create**    | Adding new records         | `INSERT`           | `user_insert`, `reservation_insert`   |
+| **R**      | **Read**      | Fetching/viewing records   | `SELECT`           | `query { users { id name } }`         |
+| **U**      | **Update**    | Modifying existing records | `UPDATE`           | `reservation_update`                  |
+| **D**      | **Delete**    | Removing records           | `DELETE`           | `reservation_delete`                  |
 
 When a web app supports **"Full CRUD"**, it means users can perform all four of these operations directly from the user interface without having to touch the database directly.
 

@@ -944,3 +944,63 @@ When you've created the token, tell me:
 > "Token created"
 
 Then we'll build the smallest possible test that uses the GitHub API to verify your identity and access to the repository. That will be the first real step toward **Save-to-GitHub from JupyterLite**. 🚀
+
+
+
+
+✏️ **Corrected English:**  
+— _I don't see Developer Settings._ {Corrected spelling and capitalization.}  
+— **Alternative:** _I can't find the Developer Settings section in GitHub._
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 **Topic Response:**
+
+No problem. GitHub hides it a little.
+
+Try this path:
+
+1. Click your **profile picture** (top-right corner of GitHub).
+2. Click **Settings**.
+3. Scroll all the way down in the **left sidebar**.
+4. Near the bottom you should see:
+
+Developer settings
+
+5. Click:
+
+Developer settings  
+
+→ Personal access tokens  
+
+→ Fine-grained tokens
+
+If you still don't see it, try going directly to:
+
+[https://github.com/settings/tokens](https://github.com/settings/tokens)
+
+or:
+
+[https://github.com/settings/personal-access-tokens](https://github.com/settings/personal-access-tokens)
+
+---
+
+⚠️ Before creating a token, I want to slightly adjust our plan.
+
+Since your repository is **public** and we're building something that may eventually be used by others, I do **not** want you to put a Personal Access Token directly into any JupyterLite files.
+
+The token is fine for **experimentation and learning**, but we will never commit it to GitHub.
+
+Our goal for the next stage is simply:
+
+Raul  
+
+↓  
+
+GitHub Authentication  
+
+↓  
+
+Can read repository through API
+
+Once you find **Developer settings**, send me a screenshot (or tell me what menu options you see), and I'll guide you through creating the safest token configuration possible.

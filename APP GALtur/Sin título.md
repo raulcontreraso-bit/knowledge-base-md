@@ -423,3 +423,499 @@ returns:
 }
 
 For now, update the version field and deploy. Then we'll make the Worker smart enough to recognize different URLs (`/`, `/whoami`, `/health`) before we connect GitHub OAuth. 🚀
+
+
+
+✏️ **Corrected English:**  
+— _Done!_ {Perfectly fine as a status update.}  
+— **Alternative:** _I've deployed the update successfully._
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 **Topic Response:**
+
+🚀 Excellent.
+
+You have now built your **first serverless API**.
+
+Current state:
+
+GitHub Repository  
+
+↓  
+
+GitHub Pages  
+
+↓  
+
+JupyterLite  
+
+↓  
+
+Cloudflare Worker
+
+And the Worker responds with:
+
+{  
+
+"service": "jupyterlite-sync",  
+
+"status": "online",  
+
+"version": "0.1.0"  
+
+}
+
+This may seem trivial, but it is actually a major milestone.
+
+---
+
+## Let's Slow Down and Understand
+
+A few hours ago, the architecture looked like this:
+
+Notebook  
+
+↓  
+
+Browser Storage
+
+Now:
+
+Notebook  
+
+↓  
+
+API Layer  
+
+↓  
+
+Future Persistence Layer
+
+You're no longer building notebooks.
+
+You're building a system.
+
+---
+
+# Next Step: Multiple Endpoints
+
+Right now every request returns the same JSON.
+
+Let's make the Worker route requests.
+
+Replace your current `fetch()` function with this:
+
+export default {  
+
+async fetch(request) {  
+
+  
+
+const url = new URL(request.url);  
+
+  
+
+if (url.pathname === "/") {  
+
+return Response.json({  
+
+service: "jupyterlite-sync",  
+
+status: "online",  
+
+version: "0.1.0"  
+
+});  
+
+}  
+
+  
+
+if (url.pathname === "/health") {  
+
+return Response.json({  
+
+healthy: true  
+
+});  
+
+}  
+
+  
+
+if (url.pathname === "/whoami") {  
+
+return Response.json({  
+
+authenticated: false  
+
+});  
+
+}  
+
+  
+
+return new Response("Not Found", {  
+
+status: 404  
+
+});  
+
+  
+
+}  
+
+};
+
+Then click:
+
+Deploy
+
+---
+
+## What This Gives You
+
+Visit:
+
+[https://jupyterlite-sync.raulcontreraso.workers.dev/](https://jupyterlite-sync.raulcontreraso.workers.dev/)
+
+Expected:
+
+{  
+
+"service":"jupyterlite-sync",  
+
+"status":"online",  
+
+"version":"0.1.0"  
+
+}
+
+Visit:
+
+[https://jupyterlite-sync.raulcontreraso.workers.dev/health](https://jupyterlite-sync.raulcontreraso.workers.dev/health)
+
+Expected:
+
+{  
+
+"healthy": true  
+
+}
+
+Visit:
+
+[https://jupyterlite-sync.raulcontreraso.workers.dev/whoami](https://jupyterlite-sync.raulcontreraso.workers.dev/whoami)
+
+Expected:
+
+{  
+
+"authenticated": false  
+
+}
+
+---
+
+## Why This Matters
+
+This is exactly how APIs evolve:
+
+GET /  
+
+GET /health  
+
+GET /whoami  
+
+POST /save
+
+Today:
+
+/health
+
+Tomorrow:
+
+/save
+
+Eventually:
+
+/save  
+
+↓  
+
+GitHub Commit
+
+---
+
+## And Here's the Cool Part
+
+When we later integrate OAuth:
+
+Today:
+
+{  
+
+"authenticated": false  
+
+}
+
+Future:
+
+{  
+
+"authenticated": true,  
+
+"user": "raulcontreraso-bit",  
+
+"isOwner": true  
+
+}
+
+At that moment:
+
+Worker knows you
+
+and we can start saving to GitHub.
+
+---
+
+🎯 Your mission:
+
+1. Add the routing code above.
+2. Deploy.
+3. Test:
+    - `/`
+    - `/health`
+    - `/whoami`
+
+Tell me the JSON returned by each endpoint, and then we'll design the GitHub login flow. 🚀
+
+
+✏️ **Corrected English:**  
+— _If we have a Worker, why do we need Node.js in some web projects and websites?_ {Corrected capitalization and phrasing.}  
+— **Alternative:** _If Cloudflare Workers can act as a backend, why do many web applications still use Node.js?_
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 **Topic Response:**
+
+Excellent question. You're starting to see the bigger picture.
+
+The short answer is:
+
+> **Cloudflare Workers and Node.js solve similar problems, but at different scales and with different trade-offs.**
+
+### Traditional Node.js Application
+
+Browser  
+
+↓  
+
+Node.js Server  
+
+↓  
+
+Database
+
+The Node.js server is always running:
+
+24/7  
+
+365 days/year
+
+Examples:
+
+- Express.js
+- NestJS
+- Next.js servers
+- APIs
+- Real-time chat applications
+
+---
+
+### Cloudflare Worker
+
+Browser  
+
+↓  
+
+Worker  
+
+↓  
+
+Database/API
+
+The Worker only runs when a request arrives:
+
+Request  
+
+↓  
+
+Run  
+
+↓  
+
+Respond  
+
+↓  
+
+Sleep
+
+This is called **serverless**.
+
+---
+
+## Why Use Node.js Then?
+
+Because some applications need capabilities that are easier with a full server.
+
+### Example 1: Real-time WebSockets
+
+ChatGPT  
+
+WhatsApp Web  
+
+Discord  
+
+Teams
+
+Lots of long-running connections.
+
+Node.js is often a natural fit.
+
+---
+
+### Example 2: Large Applications
+
+Amazon  
+
+Netflix  
+
+Banking Systems  
+
+ERP Systems
+
+Thousands of routes, services, databases, queues, background jobs.
+
+A simple Worker can become difficult to manage as complexity grows.
+
+---
+
+### Example 3: Long Tasks
+
+Suppose someone uploads a:
+
+5 GB video
+
+and you need:
+
+Video conversion  
+
+AI processing  
+
+Thumbnail generation
+
+A Worker is usually not the right place.
+
+A full backend is.
+
+---
+
+## Your Project Is Different
+
+Your save operation is tiny:
+
+Notebook  
+
+↓  
+
+Commit to GitHub
+
+The Worker may only execute for a fraction of a second:
+
+Authenticate  
+
+↓  
+
+Save file  
+
+↓  
+
+Commit  
+
+↓  
+
+Done
+
+That's why a Worker is a great fit.
+
+---
+
+## A Rule of Thumb
+
+### Use a Worker when:
+
+Small API  
+
+Authentication  
+
+Webhook  
+
+GitHub Integration  
+
+Form Processing  
+
+Lightweight Backend
+
+### Use Node.js when:
+
+Complex Application  
+
+Many Services  
+
+Long-running Processes  
+
+Heavy Computation
+
+---
+
+## What You're Building
+
+You're not building:
+
+Netflix
+
+You're building:
+
+JupyterLite  
+
+↓  
+
+Save to GitHub
+
+That's almost the textbook example of a **serverless function**.
+
+The Worker is acting as a secure bridge:
+
+JupyterLite  
+
+↓  
+
+Worker  
+
+↓  
+
+GitHub API
+
+and that's why it's such a good architectural choice here.
+
+And by the way, your endpoints are working perfectly:
+
+{"service":"jupyterlite-sync","status":"online","version":"0.1.0"}
+
+{"healthy":true}
+
+{"authenticated":false}
+
+✅ You've successfully built your first API. The next thing we'll do is teach `/whoami` how to answer **who is logged in**, instead of always returning `false`. 🚀

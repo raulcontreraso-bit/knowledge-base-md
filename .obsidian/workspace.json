@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "solving issues in firebase.md",
+                "file": "APP GALtur/FIORI.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "solving issues in firebase"
+              "title": "FIORI"
             }
           }
         ],
@@ -248,8 +248,12 @@
   },
   "active": "255e28e3c719a996",
   "lastOpenFiles": [
-    "WEB.md",
+    "APP GALtur/Firebase Host.md",
+    "APP GALtur/FIORI.md",
+    "APP GALtur/GALtur.md",
     "solving issues in firebase.md",
+    "APP GALtur",
+    "WEB.md",
     "webbbb.md",
     "Prompt anti  Guessing.md",
     "ReadMe.MD/Sin nombre/logos.md",
@@ -272,9 +276,6 @@
     "Sin título 2.md",
     "Sin título 1.md",
     "Sin título.md",
-    "ReadMe.MD",
-    "phython online options.md",
-    "Integrating GitHub Copilot with Visual Studio Code.md",
     "12341324/Sin título 1.pdf",
     "Pasted image 20260801181859.png",
     "Pasted image 20260801181508.png",

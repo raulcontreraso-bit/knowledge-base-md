@@ -379,4 +379,120 @@ Do **not** edit anything yet.
 and we'll move to **Step 2: Enable GitHub Pages and trigger the first JupyterLite deployment**.
 
 
-![[Pasted image 20260805190343.png]]
+![[Pasted image 20260805190343.png]] 
+
+
+
+✏️ **Corrected English:**  
+— _Done! Here's the screenshot._ {Natural phrasing.}  
+— **Alternative:** _I've completed the step and uploaded a screenshot of the workflow results._
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 **Topic Response:**
+
+Perfect! The screenshot clearly shows the problem.
+
+✅ **Build succeeded**  
+❌ **Deploy failed**
+
+The key error is:
+
+```text
+Failed to create deployment (status: 404)
+Ensure GitHub Pages has been enabled
+```
+
+This usually happens when GitHub Pages has not fully initialized yet, even though you selected **GitHub Actions**.
+
+# Step 3 Fix
+
+Go to:
+
+```text
+Settings
+  → Actions
+    → General
+```
+
+Scroll down to:
+
+```text
+Workflow permissions
+```
+
+Select:
+
+```text
+Read and write permissions
+```
+
+and check:
+
+```text
+Allow GitHub Actions to create and approve pull requests
+```
+
+Then click:
+
+```text
+Save
+```
+
+---
+
+# Step 4
+
+After saving:
+
+1. Go back to **Actions**.
+2. Open the failed workflow.
+3. Click:
+
+```text
+Re-run jobs
+```
+
+(top right).
+
+Wait for the workflow to finish.
+
+---
+
+# What Should Happen
+
+Instead of:
+
+```text
+build ✅
+deploy ❌
+```
+
+you should get:
+
+```text
+build ✅
+deploy ✅
+```
+
+Once both are green, GitHub will generate a URL similar to:
+
+```text
+https://raulcontreraso-bit.github.io/my-study-notebooks_DevOps/
+```
+
+and your JupyterLite site will be live.
+
+---
+
+### Before doing anything else
+
+Tell me:
+
+✅ Were **Workflow permissions** already set to _Read and write_?
+
+or
+
+✅ Did you just change them?
+
+Then rerun the workflow and show me the result. We're very close to having Stage 1 fully working.

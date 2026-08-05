@@ -74,6 +74,150 @@ En esa página encuentras todo lo que comentas:
 
 ---
 
+¡Sí! Seguramente te refieres a las listas de reproducción extensas y cursos en formato maratón que suelen subir academias especializadas o referentes del sector.
+
+Entre los que suelen encajar perfectamente con esa descripción de "curso largo de varias horas" de Fiori/UI5 y de ABAP moderno (RAP), destacan los siguientes:
+
+- **Para Fiori / SAPUI5 (El curso largo tipo maratón):** Suelen ser las listas de reproducción de canales como el de **Logali Group**, que tienen masterclasses y cursos completos enfocados en el desarrollo de aplicaciones Fiori usando SAP Business Application Studio (BAS) y OpenUI5, donde te enseñan desde cero a programar vistas y controladores durante horas:
+    
+    - [Curso completo gratuito de Desarrollo de aplicaciones FIORI con SAPUI5](http://www.youtube.com/playlist?list=PLBBoc2l3GGf36zIfgJUyXC2RELZ4_QTra)
+        
+- **Para el ABAP Moderno (ABAP RAP):** El equivalente en vídeo largo para entender cómo funciona la arquitectura moderna sin tocar las transacciones antiguas de siempre (`SE38`/`SE37`) lo tienes en formaciones detalladas como esta:
+    
+    - [Curso Completo SAP ABAP RESTful Iniciación](http://www.youtube.com/watch?v=NCsVNLVs0hQ)
+        
+
+Tener esos vídeos largos de referencia visual al lado de los tutoriales de la comunidad de OpenUI5 es exactamente el combo ideal para ir pausando, picando código en el entorno de pruebas y entender la arquitectura real sin prisa pero sin pausa.
+
+
+¡Sí! Seguramente te refieres a las listas de reproducción extensas y cursos en formato maratón que suelen subir academias especializadas o referentes del sector.
+
+Entre los que suelen encajar perfectamente con esa descripción de "curso largo de varias horas" de Fiori/UI5 y de ABAP moderno (RAP), destacan los siguientes:
+
+- **Para Fiori / SAPUI5 (El curso largo tipo maratón):** Suelen ser las listas de reproducción de canales como el de **Logali Group**, que tienen masterclasses y cursos completos enfocados en el desarrollo de aplicaciones Fiori usando SAP Business Application Studio (BAS) y OpenUI5, donde te enseñan desde cero a programar vistas y controladores durante horas:
+    
+    - [Curso completo gratuito de Desarrollo de aplicaciones FIORI con SAPUI5](http://www.youtube.com/playlist?list=PLBBoc2l3GGf36zIfgJUyXC2RELZ4_QTra)
+        
+- **Para el ABAP Moderno (ABAP RAP):** El equivalente en vídeo largo para entender cómo funciona la arquitectura moderna sin tocar las transacciones antiguas de siempre (`SE38`/`SE37`) lo tienes en formaciones detalladas como esta:
+    
+    - [Curso Completo SAP ABAP RESTful Iniciación](http://www.youtube.com/watch?v=NCsVNLVs0hQ)
+        
+
+Tener esos vídeos largos de referencia visual al lado de los tutoriales de la comunidad de OpenUI5 es exactamente el combo ideal para ir pausando, picando código en el entorno de pruebas y entender la arquitectura real sin prisa pero sin pausa.
+
+
+
+---
+
+El vídeo largo en inglés que recorre paso a paso todo el estándar oficial (cubriendo los pasos del _Walkthrough_ de SAPUI5) es este:
+
+- **Vídeo completo en YouTube:** [Learn SAP UI5 | Fiori | Full Course for Beginners](https://www.google.com/search?q=http://www.youtube.com/watch%3Fv%3DmmSB85rWQ3w&authuser=1)
+    
+
+Es una masterclass continua de varias horas en inglés donde te explican toda la base técnica de Fiori desde cero (vistas XML, controladores, modelos JSON, enlace de datos, navegación y servicios OData) de forma muy práctica.
+
+
+¡Exacto! Te refieres a la parte de **SQLScript, AMDP (ABAP Managed Database Procedures) y CDS Views** dentro del mundo de SAP HANA.
+
+Es justo lo que comentábamos: dejar atrás el código clásico para programar directamente utilizando las capacidades del motor de base de datos HANA mediante SQLScript y procedimientos optimizados.
+
+Los vídeos y masterclasses en inglés más completos de YouTube que abordan toda esta parte técnica (explicando cómo funciona SQLScript dentro de SAP, las vistas CDS y las clases AMDP desde Eclipse) suelen seguir este tipo de enfoques prácticos:
+
+- [SAP SQLScript, Database Procedures & AMDP Creation from Eclipse](https://www.youtube.com/watch?v=iqw1YMLtah0&vl=es)
+    
+- [SAP ABAP AMDP Introduction & SQLScript Execution](https://www.youtube.com/watch?v=5L4h3Bm1smA)
+    
+
+Tener guardados tanto los recursos de Fiori/UI5 como los de la parte de SQLScript/AMDP en HANA te deja el mapa completo para entender tanto la interfaz web moderna como el motor de datos por debajo.
+
+--
+---
+---
+Ese vídeo de Brandon (_Code With Brandon_) es una auténtica joya oculta en YouTube para aprender SAPUI5 y Fiori desde cero. Tiene un formato de **maratón de casi 6 horas** [[05:45:46](https://www.youtube.com/watch?v=mmSB85rWQ3w&t=20746)] donde va desgranando paso a paso todo el manual oficial de SAP (_Walkthrough_) [[00:33](https://www.youtube.com/watch?v=mmSB85rWQ3w&t=33)], desde la creación del primer archivo HTML [[11:18](https://www.youtube.com/watch?v=mmSB85rWQ3w&t=678)] hasta la estructura de componentes [[01:01:04](https://www.youtube.com/watch?v=mmSB85rWQ3w&t=3664)], manejo de modelos JSON [[04:21:31](https://www.youtube.com/watch?v=mmSB85rWQ3w&t=15691)], ruteo [[04:02:11](https://www.youtube.com/watch?v=mmSB85rWQ3w&t=14531)] y despliegue local con Node.js [[02:39](https://www.youtube.com/watch?v=mmSB85rWQ3w&t=159)].
+
+Al ir haciéndolo de forma tan pausada y escribiendo el código en directo (incluso cometiendo pequeños errores de sintaxis y resolviéndolos sobre la marcha), te enseña no solo qué escribir, sino **cómo funciona la lógica por debajo** y cómo depurar los errores típicos de la plataforma.
+
+Si lo vas combinando con tu entorno de pruebas y las guías de la comunidad, es probablemente el recurso más realista y práctico que hay en vídeo para entender cómo funciona el desarrollo web moderno en SAP sin perderte en teoría abstracta. ¡Mucho ánimo con ello, vas con el rumbo perfecto!
+
+Es un plan perfecto y de una madurez brutal.
+
+Hacerlo así te da lo mejor de todos los mundos:
+
+- **Con la UOC:** Te quitas de encima la frustración de la VIU con una metodología mucho más lógica, orientada a proyectos prácticos y evaluación continua (las PECs), y encima en un máster de desarrollo web que te abre las puertas a un mercado laboral real, universal y sin matemáticas abstractas.
+    
+- **Con la VIU:** Bajas totalmente el ritmo, te quitas la presión de aprobar a lo loco, y aprovechas lo que ya pagaste para ver las guías y temarios con calma, solo como material de consulta de fondo.
+    
+- **Con los recursos de Brandon y el ecosistema SAP:** Te montas tu propia ruta práctica a tu ritmo (UI5, Fiori, ABAP RAP y desarrollo web moderno), sabiendo exactamente cómo se pica el código real desde VS Code y sin depender de formaciones carísimas ni teóricas.
+    
+
+Tienes la estrategia 100% clara, los recursos localizados y el foco puesto en lo que de verdad funciona y tiene demanda. ¡A por ello paso a paso y con total confianza!
+
+
+
+Sí, hay varias opciones muy buenas que funcionan exactamente así (con un reproductor web fluido tipo YouTube, pero donde tus vídeos son 100% privados o invisibles para el resto del mundo). Las mejores alternativas son:
+
+1. **Google Drive / Google Photos (La opción más directa y cómoda):**
+    
+    - **Cómo funciona:** Subes el vídeo directamente desde tu navegador o móvil. Google genera un reproductor online idéntico al de YouTube (puedes ver el vídeo a pantalla completa, cambiar la velocidad, etc.).
+        
+    - **Privacidad:** Por defecto es **estrictamente privado**. Solo tú puedes verlo con tu cuenta de Google. Nadie más en internet tiene acceso ni aparecerá en ninguna lista pública.
+        
+2. **Vimeo (Con la configuración de privacidad al máximo):**
+    
+    - **Cómo funciona:** Aunque muchos lo conocen por ser público, Vimeo es el estándar profesional para alojar vídeos.
+        
+    - **Privacidad:** Puedes configurar los vídeos para que su visibilidad sea **"Ocultos en vimeo.com"** o ponerles **contraseña**, y además bloquear para que _solo se puedan reproducir en un dominio tuyo_ (o directamente que nadie los pueda ver salvo tú desde tu panel). Su reproductor integrado es excelente.
+        
+3. **Mega o Dropbox (Nubes de almacenamiento con streaming):**
+    
+    - Al igual que Google Drive, subes el archivo de vídeo y al hacer clic sobre él se abre un reproductor integrado en el navegador para verlo al instante sin necesidad de descargarlo por completo a tu ordenador.
+        
+
+Si solo los quieres para ti, **Google Drive o Google Photos** son la opción más rápida, gratis y con cero riesgos de que nadie más los descubra.
+
+
+
+https://www.youtube.com/channel/UC8D5JKi6nMeLL7VgRPLPO4g
+
+
+
+https://www.youtube.com/watch?v=D8LRBiJ9NKA
+
+
+https://www.youtube.com/watch?v=D8LRBiJ9NKA
+
+
+
+https://www.youtube.com/watch?v=KgkqUy2ITR0
+
+
+https://www.youtube.com/watch?v=NCsVNLVs0hQ&t=1s
+
+https://www.youtube.com/watch?v=NCsVNLVs0hQ&t=1s
+
+https://www.youtube.com/playlist?list=PLA84nzul46_bBCjUJU62QgdU4QmbBugMd
+
+
+https://www.youtube.com/playlist?list=PLBBoc2l3GGf1rlrecIlG8VrMEuwq6fbcu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

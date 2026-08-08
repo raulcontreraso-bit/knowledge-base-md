@@ -625,3 +625,90 @@ If you want auto-formatting and extra syntax checks beyond the built-in capabili
 |**Prettier - Code formatter**|Automatically formats HTML, CSS, and JS code on save (`Ctrl + S`).|
 |**ESLint**|Enforces JavaScript clean code standards, catches syntax bugs, and prevents unused variables.|
 |**HTML CSS Support**|Adds autocompletion for CSS class names inside your HTML elements.|
+
+
+
+---
+
+To check all projects and directories in your WSL home folder and make sure you only have the one project you want, follow these quick commands in your WSL terminal:
+
+  
+
+### Step 1: List Everything in Your Projects Folder
+
+Navigate to your `projects` directory and list its contents:
+
+  
+
+Bash
+
+```
+cd ~/projects && ls -la
+```
+
+- **What you should see:** Only `node-python-bridge` (along with `.` and `..` which represent the current and parent directories).
+    
+      
+    
+- **If extra project folders appear:** You can delete any unwanted project folder using:
+    
+      
+    
+    Bash
+    
+    ```
+    rm -rf name-of-unwanted-folder
+    ```
+    
+
+### Step 2: Check Your Linux Home Directory
+
+Check if there are any other stray project folders created directly in your main home directory (`/home/raulc`):
+
+  
+
+Bash
+
+```
+cd ~ && ls -la
+```
+
+- Look for directories other than standard Linux configuration folders (like `.bashrc`, `.gitconfig`, `.vscode-server`, etc.).
+    
+      
+    
+
+### Step 3: Find Any Hidden Git Repositories Across Your System
+
+To be 100% sure there are no other Git repositories initialized anywhere else in your home directory, run:
+
+  
+
+Bash
+
+```
+find ~ -maxdepth 3 -name ".git" -type d
+```
+
+#### What the output means:
+
+If only one result appears:
+
+  
+
+Plaintext
+
+```
+/home/raulc/projects/node-python-bridge/.git
+```
+
+Then **`node-python-bridge` is officially the only project in your WSL workspace!
+
+
+----
+
+   wsl --shutdownwsl --shutdown
+
+
+
+**

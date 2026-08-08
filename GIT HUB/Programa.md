@@ -189,3 +189,145 @@ If your WSL is running on Windows 11 (WSLg), you can install and run a full GUI 
 ### Quick Summary
 
 - For testing your `server.js` Node app running on `localhost:3000`, **`explorer.exe http://localhost:3000`** is the easiest and most reliable command to run directly from WSL.
+
+
+
+----
+
+
+Yes, you can view and interact with your SQLite database (`empresa.db`) directly inside VS Code without using external desktop apps like DB Browser.
+
+  
+
+### Step 1: Install the SQLite Extension in VS Code
+
+1. Press **`Ctrl + Shift + X`** (or click the Extensions icon on the left sidebar).
+    
+      
+    
+2. Search for **`SQLite`** (by author _alexcvzz_).
+    
+      
+    
+3. Click **Install**.
+    
+      
+    
+
+### Step 2: Open and Inspect Your Database
+
+1. Press **`Ctrl + Shift + P`** to open the Command Palette.
+    
+      
+    
+2. Type **`SQLite: Open Database`** and press **Enter**.
+    
+      
+    
+3. Select your database file: `database/empresa.db`.
+    
+      
+    
+4. Look at the bottom of your VS Code Explorer sidebar (left panel)—you will see a new collapsible section named **`SQLITE EXPLORER`**.
+    
+      
+    
+5. Expand `empresa.db` $\rightarrow$ expand `Tables` $\rightarrow$ right-click on your table (e.g., `clientes`) and select **`Show Table`**.
+    
+      
+    
+
+VS Code will open a interactive tabular view displaying all rows and columns directly inside an editor tab!
+
+  
+
+### Step 3: Run Custom SQL Queries (Optional)
+
+If you want to execute raw SQL commands directly inside VS Code:
+
+  
+
+1. Create a temporary file named `query.sql`.
+    
+      
+    
+2. Write any standard SQL query:
+    
+      
+    
+    SQL
+    
+    ```
+    SELECT * FROM clientes WHERE edad > 30;
+    ```
+    
+1. Highlight the query text, right-click, and select **`Run Selected Query`** (or press `Ctrl + Shift + Q`). The query results will render in a split panel on the right.
+
+
+Yes, you can view and interact with your SQLite database (`empresa.db`) directly inside VS Code without using external desktop apps like DB Browser.
+
+  
+
+### Step 1: Install the SQLite Extension in VS Code
+
+1. Press **`Ctrl + Shift + X`** (or click the Extensions icon on the left sidebar).
+    
+      
+    
+2. Search for **`SQLite`** (by author _alexcvzz_).
+    
+      
+    
+3. Click **Install**.
+    
+      
+    
+
+### Step 2: Open and Inspect Your Database
+
+1. Press **`Ctrl + Shift + P`** to open the Command Palette.
+    
+      
+    
+2. Type **`SQLite: Open Database`** and press **Enter**.
+    
+      
+    
+3. Select your database file: `database/empresa.db`.
+    
+      
+    
+4. Look at the bottom of your VS Code Explorer sidebar (left panel)—you will see a new collapsible section named **`SQLITE EXPLORER`**.
+    
+      
+    
+5. Expand `empresa.db` $\rightarrow$ expand `Tables` $\rightarrow$ right-click on your table (e.g., `clientes`) and select **`Show Table`**.
+    
+      
+    
+
+VS Code will open a interactive tabular view displaying all rows and columns directly inside an editor tab!
+
+  
+
+### Step 3: Run Custom SQL Queries (Optional)
+
+If you want to execute raw SQL commands directly inside VS Code:
+
+  
+
+1. Create a temporary file named `query.sql`.
+    
+      
+    
+2. Write any standard SQL query:
+    
+      
+    
+    SQL
+    
+    ```
+    SELECT * FROM clientes WHERE edad > 30;
+    ```
+    
+3. Highlight the query text, right-click, and select **`Run Selected Query`** (or press `Ctrl + Shift + Q`). The query results will render in a split panel on the right.

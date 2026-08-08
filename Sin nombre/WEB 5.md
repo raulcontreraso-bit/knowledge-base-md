@@ -14,11 +14,11 @@ Currently pursuing an **MS in Web Development**.
 ## 🧭 Career & Academic Roadmap
 
 ```
-      [ ENTERPRISE ERP ]              [ MODERN WEB & CS ]              [ INTEGRATION ]
-┌─────────────────────────────┐   ┌─────────────────────────┐   ┌─────────────────────────────┐
-│ • SAP S/4HANA (SD/WM/EWM)   │───│ • Master's in Web Dev   │───│ • Custom SAP Fiori/UI5      │
-│ • Business Process Design   │   │ • Computer Science Core │   │ • RESTful / OData APIs      │
-└─────────────────────────────┘   └─────────────────────────┘   └─────────────────────────────┘
+  [ ENTERPRISE ERP ]           [ MODERN WEB & CS ]        [ INTEGRATION ]
+┌───────────────────────┐   ┌─────────────────────┐ ┌────────────────────────┐
+│SAP S/4HANA (SD/WM/EWM)│───│ Master's in Web Dev │─│ Custom SAP Fiori/UI5   │
+│Business Process Design│   │Computer Science Core│ │ RESTful / OData APIs   │
+└───────────────────────┘   └─────────────────────┘ └────────────────────────┘
 ```
 
 ## 🎓 1. Academic & Computer Science Core

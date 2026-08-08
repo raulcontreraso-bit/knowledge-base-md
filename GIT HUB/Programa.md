@@ -710,5 +710,154 @@ Then **`node-python-bridge` is officially the only project in your WSL workspace
    wsl --shutdownwsl --shutdown
 
 
+Both installation paths are present! You have two distinct ways to launch PyCharm from your WSL terminal.
+
+  
+
+### Option 1: Launch PyCharm installed on Windows (Recommended)
+
+The first path (`/mnt/c/Users/...`) points to the PyCharm installation managed by JetBrains Toolbox on your Windows side. Running this launches PyCharm natively in Windows with full GPU acceleration while automatically pointing it to your WSL project files.
+
+  
+
+Run this command directly in WSL:
+
+  
+
+Bash
+
+```
+/mnt/c/Users/raulc/AppData/Local/JetBrains/Toolbox/scripts/pycharm .
+```
+
+### Option 2: Launch PyCharm installed inside WSL (Linux Snap)
+
+The second path (`/snap/bin/pycharm-community`) points to the native Linux version installed via Snap inside WSL.
+
+  
+
+Run this command in WSL:
+
+  
+
+Bash
+
+```
+/snap/bin/pycharm-community .
+```
+
+_(Note: If the Snap version fails to open a GUI window, ensure systemd is running or use Option 1)._
+
+  
+
+### Make `pycharm` Easy to Type (Create Shortcuts)
+
+To avoid typing those long directory paths every time, add an alias to your `~/.bashrc` file.
+
+  
+
+1. Open your bash configuration file:
+    
+      
+    
+    Bash
+    
+    ```
+    nano ~/.bashrc
+    ```
+    
+2. Scroll to the bottom and paste one of these lines:
+    
+      
+    - **To make `pycharm` open the Windows version:**
+        
+          
+        
+        Bash
+        
+        ```
+        alias pycharm="/mnt/c/Users/raulc/AppData/Local/JetBrains/Toolbox/scripts/pycharm"
+        ```
+        
+    - **To make `pycharm` open the WSL Snap version:**
+        
+          
+        
+        Bash
+        
+        ```
+        alias pycharm="/snap/bin/pycharm-community"
+        ```
+        
+3. Save (`Ctrl + O` $\rightarrow$ `Enter`) and exit (`Ctrl + X`).
+    
+      
+    
+4. Reload your configuration:
+    
+      
+    
+    Bash
+    
+    ```
+    source ~/.bashrc
+    ```
+    
+
+Now, navigate to your project directory and open PyCharm with a single command:
+
+Bash
+
+```
+cd ~/projects/node-python-bridge
+pycharm .
+```
+
+
 
 **
+
+You are currently inside your **Windows user directory** mapped through WSL (`/mnt/c/Users/raulc`).
+
+  
+
+To jump directly from there to your Linux/WSL project folder (`/home/raulc/projects/node-python-bridge`), run:
+
+  
+
+Bash
+
+```
+cd ~/projects/node-python-bridge
+```
+
+### How the `~` Shortcut Works
+
+In Linux/WSL:
+
+  
+
+- **`~` (Tilde):** Points to your **Linux Home Directory** (`/home/raulc`).
+    
+      
+    
+- **`/mnt/c/Users/raulc`:** Points to your **Windows User Directory**.
+    
+      
+    
+
+Running `cd ~/projects/node-python-bridge` instantly takes you out of the Windows file system (`/mnt/c/`) and drops you right into your Linux project workspace, no matter where you are in the terminal!
+
+### Navigation Cheat Sheet
+
+|**Where you want to go**|**Command**|
+|---|---|
+|**Your Node-Python Project**|`cd ~/projects/node-python-bridge`|
+|**Linux Home Directory (`/home/raulc`)**|`cd ~` or just `cd`|
+|**Windows Home Directory (`/mnt/c/Users/raulc`)**|`cd /mnt/c/Users/raulc`|
+|**Check where you currently are**|`pwd`|
+
+
+
+
+

@@ -369,3 +369,284 @@ nothing to commit, working tree clean
 ```
 
 Everything is in place—your polyglot architecture is clean (HTML/CSS/JS separated from Node), your Git setup is authenticated, and your automated push scripts are ready whenever you need them.
+
+
+
+----
+
+
+That makes complete sense! Practicing branch workflows on a real project—even a small one—is the absolute best way to build muscle memory for big enterprise codebases.
+
+  
+
+Here is the step-by-step guide to practicing the **documentation branch workflow**, resolving multi-PC desynchronization using Git history, and using VS Code's built-in tools to inspect and merge `.md` files.
+
+  
+
+## Part 1: Practicing the Branch Workflow
+
+Let's create the `docs/` structure on a dedicated feature branch, commit it, and merge it back into `main`.
+
+  
+
+### Step 1: Create and Switch to a Docs Branch
+
+In your WSL terminal inside `~/projects/node-python-bridge`:
+
+  
+
+Bash
+
+```
+git checkout -b feature/add-docs
+```
+
+_This creates a new branch named `feature/add-docs` and switches you to it._
+
+  
+
+### Step 2: Create the `docs/` Directory and Files
+
+Create the directory and files:
+
+  
+
+Bash
+
+```
+mkdir -p docs
+touch docs/architecture.md docs/setup-guide.md docs/api-endpoints.md
+```
+
+Add quick starter content into one of them:
+
+  
+
+Bash
+
+```
+echo "# Polyglot Architecture" > docs/architecture.md
+echo "Node.js orchestrates Python, C++, COBOL, Fortran, and Java." >> docs/architecture.md
+```
+
+### Step 3: Push the Branch to GitHub
+
+Use your custom `gitpush` shortcut to push this new branch:
+
+  
+
+Bash
+
+```
+gitpush "Add docs structure on feature branch"
+```
+
+_(Git will automatically push the `feature/add-docs` branch to GitHub)._
+
+  
+
+### Step 4: Merge the Docs Branch back into `main`
+
+Now that your documentation work on the feature branch is ready, merge it into your primary codebase:
+
+  
+
+Bash
+
+```
+# 1. Switch back to main
+git checkout main
+
+# 2. Merge the feature branch into main
+git merge feature/add-docs
+
+# 3. Push updated main branch to GitHub
+git push
+
+# 4. Clean up (delete the local feature branch)
+git branch -d feature/add-docs
+```
+
+## Part 2: Scenario — "I have 2 PCs and don't remember which one is more updated!"
+
+When working across multiple computers (e.g., a laptop and a desktop), here is how to check which machine has the latest `.md` updates and how to resolve desynchronization.
+
+  
+
+### Method A: Check Git History to See Which PC is Ahead
+
+Before editing anything on PC #2, run these commands in WSL:
+
+  
+
+Bash
+
+```
+# 1. Fetch the latest metadata from GitHub without altering your local files
+git fetch origin
+
+# 2. Compare your local branch against GitHub's remote main branch
+git status
+```
+
+**Understanding the Output:**
+
+  
+
+1. **`Your branch is behind 'origin/main' by X commits`** $\rightarrow$ Your **other PC** pushed newer work to GitHub. You need to pull the updates:
+    
+      
+    
+    Bash
+    
+    ```
+    git pull
+    ```
+    
+2. **`Your branch is ahead of 'origin/main' by X commits`** $\rightarrow$ **This PC** has un-pushed changes that haven't reached GitHub yet. Run `git push`.
+    
+      
+    
+3. **`Your branch and 'origin/main' have diverged`** $\rightarrow$ Both PCs made edits without pulling first! Running `git pull` will trigger a merge.
+    
+      
+    
+
+### Method B: Compare Exact `.md` File Differences Line-by-Line
+
+To see the exact text differences between what is on your local PC and what was pushed from your other PC:
+
+  
+
+Bash
+
+```
+git diff main origin/main -- docs/architecture.md
+```
+
+- **Green lines (`+`)** show text added on GitHub (from PC #1).
+    
+      
+    
+- **Red lines (`-`)** show text present locally that hasn't been pushed.
+    
+      
+    
+
+### Method C: Use VS Code's Built-in Git Tools (Visual Merge & Timeline)
+
+VS Code provides dedicated UI tools to handle this visually without writing terminal commands:
+
+  
+
+#### 1. The Timeline View (Find out when/where a file was updated)
+
+1. Open any `.md` file in VS Code (e.g., `docs/architecture.md`).
+    
+      
+    
+2. Open the Explorer sidebar (`Ctrl + Shift + E`).
+    
+      
+    
+3. Expand the **Timeline** panel at the very bottom of the sidebar.
+    
+      
+    
+4. You will see a chronological list of every local save and Git commit, showing exact timestamps and author details so you know which PC made the latest edit.
+    
+      
+    
+
+#### 2. Visual Diff & Merge Conflict Resolution
+
+If both PCs edited the same `.md` file, VS Code highlights the differences automatically when you run `git pull`:
+
+  
+
+- **Current Change (Green):** The text on your current computer.
+    
+      
+    
+- **Incoming Change (Blue):** The text pushed from your other computer.
+    
+      
+    
+- **Action Buttons:** VS Code displays inline action buttons directly above the text:
+    
+      
+    - `Accept Current Change`
+        
+          
+        
+    - `Accept Incoming Change`
+        
+          
+        
+    - `Accept Both Changes`
+        
+          
+        
+
+Clicking **`Accept Both Changes`** automatically combines the Markdown notes from both computers into a single unified file!
+
+
+
+-----
+
+
+That error happened because `git push` on a **brand-new branch** doesn't know where to send the code on GitHub until you tell Git to link the local branch to a remote branch (setting the "upstream").
+
+  
+
+You can fix this for now, and then update your `gitpush` function so this **never happens again**.
+
+  
+
+### Step 1: Fix It Right Now
+
+Run the command Git suggested to push your current branch and set its upstream link:
+
+  
+
+Bash
+
+```
+git push -u origin feature/add-docs
+```
+
+### Step 2: Make `gitpush` Work for ANY New Branch Automatically
+
+To stop Git from complaining whenever you create new feature branches in the future, configure Git to automatically set the upstream remote on `git push`:
+
+  
+
+Bash
+
+```
+git config --global push.autoSetupRemote true
+```
+
+With `push.autoSetupRemote true` set globally, anytime you create a new branch like `feature/whatever` or `docs/notes` and run `gitpush "message"`, Git will automatically set the remote tracking branch and push without error!
+
+  
+
+### Step 3: Complete Your Branch Merge Test
+
+Now that your branch is pushed, complete the merge into `main`:
+
+Bash
+
+```
+# 1. Switch back to main
+git checkout main
+
+# 2. Merge feature branch into main
+git merge feature/add-docs
+
+# 3. Push main to GitHub
+git push
+
+# 4. (Optional) Delete the local feature branch once merged
+git branch -d feature/add-docs
+```

@@ -74,7 +74,44 @@ Comprehensive full-stack architecture combining classical foundations (LAMP) wit
 - [**E-commerce Store**](https://gemini.google.com/app/cs-engineer-workspace/projects/shop-app/ "null"): Modern shopping cart application built with reactive state management.
     
 
-## 💻 3. Programming Languages & Runtimes
+In your `README.md`, the line:
+
+  
+
+Bash
+
+```
+user@rc-workspace:~$ cat summary.txt
+```
+
+is a **command-line interface (CLI) snippet** styled to look like a real Linux or macOS terminal prompt.
+
+  
+
+It serves as a creative, tech-focused design element. Here is a breakdown of what each part means:
+
+  
+
+- **`user@rc-workspace`**: Represents a user (`user`) logged into a local computer or virtual machine named **rc-workspace** (short for _Raúl Contreras Workspace_).
+    
+      
+    
+- **`:~$`**: Shows that the command is being executed from the user's home directory (`~`).
+    
+      
+    
+- **`cat`**: A standard Linux/Unix command (short for _concatenate_) used to display or read the contents of a text file directly in the terminal window.
+    
+      
+    
+- **`summary.txt`**: The file being read, which in this context represents the paragraph immediately following it (your professional bio and summary).
+    
+      
+    
+
+### Why programmers use it in GitHub profile READMEs
+
+Instead of just writing "About Me" or "Summary," technical professionals use terminal commands like `cat summary.txt` or `whoami` to immediately show visitors (recruiters, engineering managers, or fellow developers) that they are comfortable working in a command-line environment like Linux or Bash.
 
 Languages powering server-side development, automation, systems tooling, and API engineering.
 

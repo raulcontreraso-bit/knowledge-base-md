@@ -94,59 +94,21 @@ For the  web development courses i installed a local LAMP stack directly on my w
  
 
 - **XAMPP (or MAMP / WampServer)**:
-         A completely free, cross-platform local server suite that bundles Apache, MariaDB/MySQL, and PHP into a single control panel.
-        
-          
-        
-    - **Why use it:** It allows you to run your Laravel back-end and interface with MySQL without needing a remote server.
-        
-          
-        
-- **WSL 2 (Windows Subsystem for Linux) + Native LAMP Stack**
-    
-      
-    - **What it is:** Installing native Linux (like Ubuntu) inside Windows, then installing Apache, MySQL, and PHP directly via the Linux terminal (`sudo apt install apache2 mysql-server php`).
-        
-          
-        
-    - **Why use it:** Since your curriculum heavily emphasizes Linux administration and production environments, configuring a native Linux environment inside WSL mirror real-world production servers most accurately.
-        
-          
-        
+         A completely free, cross-platform local server suite that bundles Apache, MariaDB/MySQL, and PHP into a single control panel.   It allows  to run a Laravel back-end and interface with MySQL without needing a remote server.
+                         
+- **WSL 2 (Windows Subsystem for Linux) + Native LAMP Stack**:
+         Installing native Linux ( Ubuntu) inside Windows, then installing Apache, MySQL, and PHP directly via the Linux terminal (`sudo apt install apache2 mysql-server php`).  Linux administration and production environments, configuring a native Linux environment inside WSL mirror real-world production servers most accurately.        
 
 ### 2. Free Cloud & Server Options (For Live Deployment)
 
-If you need to deploy your PHP/Laravel back-end and MySQL database live on the internet, the following free cloud tiers are ideal for students:
+Forr PHP/Laravel back-end and MySQL database live on the internet, i used the following free cloud tiers for academic purpouses:
 
-  
-
-- **Oracle Cloud Free Tier (Always Free Compute)**
-    
-      
-    - **What it is:** Oracle offers two free Linux Virtual Machines (VPS) with persistent storage permanently free.
-        
-          
-        
-    - **Why use it:** You can manually install Apache, MySQL, and PHP on an actual Linux cloud instance, giving you a full, production-grade cloud LAMP server for zero cost.
-        
-          
-        
+  - **Oracle Cloud Free Tier (Always Free Compute)**
+  -       Oracle offers two free Linux Virtual Machines (VPS) with persistent storage permanently free. It allows to manually install Apache, MySQL, and PHP on an actual Linux cloud instance, giving you a full, production-grade cloud LAMP server for zero cost.      
+                  
 - **Render or Fly.io (Free / Hobby Tier)**
-    
-      
-    - **What it is:** Cloud platforms that let you deploy Web Services (PHP/Laravel) and managed databases (MySQL/PostgreSQL) directly from GitHub repositories.
+-      Cloud platforms that let you deploy Web Services (PHP/Laravel) and managed databases (MySQL/PostgreSQL) directly from GitHub repositories. Great for quick TFM (Trabajo Final de Máster) demonstrations without managing low-level Linux configuration.
         
-          
-        
-    - **Why use it:** Great for quick TFM (Trabajo Final de Máster) demonstrations without managing low-level Linux configuration.
-        
-          
-        
+                
 - **Free Shared PHP Hosting (e.g., InfinityFree / 000webhost alternatives)**
-    
-      
-    - **What it is:** Traditional web hosts offering free Apache + MySQL + PHP hosting via a browser dashboard (cPanel).
-        
-          
-        
-    - **Why use it:** Easiest to upload raw HTML/CSS/PHP files via FTP, though less flexible for modern frameworks like Laravel.
+     Traditional web hosts offering free Apache + MySQL + PHP hosting via a browser dashboard (cPanel).  Easiest to upload raw HTML/CSS/PHP files via FTP, though less flexible for modern frameworks like Laravel.

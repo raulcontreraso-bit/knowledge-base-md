@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Sin nombre/WEB 5.md",
+                "file": "GIT HUB/GIT.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "WEB 5"
+              "title": "GIT"
             }
           }
         ],
@@ -204,11 +204,12 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "cdd7cec8bed4f66f",
+  "active": "73c0923f4ff72739",
   "lastOpenFiles": [
-    "Sin nombre 1",
-    "Sin nombre/Jupiter Lite.md",
     "Sin nombre/WEB 5.md",
+    "GIT HUB/GIT.md",
+    "GIT HUB",
+    "Sin nombre/Jupiter Lite.md",
     "Sin nombre/WEB 4.md",
     "Sin nombre/web 2.md",
     "Sin nombre/web 3.md",

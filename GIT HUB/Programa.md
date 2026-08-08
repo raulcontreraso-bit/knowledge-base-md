@@ -330,4 +330,298 @@ If you want to execute raw SQL commands directly inside VS Code:
     SELECT * FROM clientes WHERE edad > 30;
     ```
     
-3. Highlight the query text, right-click, and select **`Run Selected Query`** (or press `Ctrl + Shift + Q`). The query results will render in a split panel on the right.
+1. Highlight the query text, right-click, and select **`Run Selected Query`** (or press `Ctrl + Shift + Q`). The query results will render in a split panel on the right.
+
+
+Yes, you can view and interact with your SQLite database (`empresa.db`) directly inside VS Code without using external desktop apps like DB Browser.
+
+  
+
+### Step 1: Install the SQLite Extension in VS Code
+
+1. Press **`Ctrl + Shift + X`** (or click the Extensions icon on the left sidebar).
+    
+      
+    
+2. Search for **`SQLite`** (by author _alexcvzz_).
+    
+      
+    
+3. Click **Install**.
+    
+      
+    
+
+### Step 2: Open and Inspect Your Database
+
+1. Press **`Ctrl + Shift + P`** to open the Command Palette.
+    
+      
+    
+2. Type **`SQLite: Open Database`** and press **Enter**.
+    
+      
+    
+3. Select your database file: `database/empresa.db`.
+    
+      
+    
+4. Look at the bottom of your VS Code Explorer sidebar (left panel)—you will see a new collapsible section named **`SQLITE EXPLORER`**.
+    
+      
+    
+5. Expand `empresa.db` $\rightarrow$ expand `Tables` $\rightarrow$ right-click on your table (e.g., `clientes`) and select **`Show Table`**.
+    
+      
+    
+
+VS Code will open a interactive tabular view displaying all rows and columns directly inside an editor tab!
+
+  
+
+### Step 3: Run Custom SQL Queries (Optional)
+
+If you want to execute raw SQL commands directly inside VS Code:
+
+  
+
+1. Create a temporary file named `query.sql`.
+    
+      
+    
+2. Write any standard SQL query:
+    
+      
+    
+    SQL
+    
+    ```
+    SELECT * FROM clientes WHERE edad > 30;
+    ```
+    
+1. Highlight the query text, right-click, and select **`Run Selected Query`** (or press `Ctrl + Shift + Q`). The query results will render in a split panel on the right.
+
+
+---
+
+Your current working directory is `/usr` (the root system directory). To go straight back to your `node-python-bridge` project directory in WSL, run:
+
+  
+
+Bash
+
+```
+cd ~/projects/node-python-bridge
+```
+
+The `~` shortcut automatically points to your Linux home folder (`/home/raulc/`), returning you directly to your project space.
+
+  
+
+### Useful Shortcuts to Navigate Folders in WSL
+
+- **Go back to home directory:** `cd` or `cd ~`
+    
+      
+    
+- **Go back to previous directory:** `cd -`
+    
+      
+    
+- **Move up one directory level:** `cd ..`
+    
+      
+    
+- **Check your current directory location:** `pwd`
+
+
+---
+
+
+Yes! VS Code has built-in syntax checking for HTML, CSS, and JavaScript, and you can preview HTML pages directly inside the editor or in your browser using extensions.
+
+  
+
+### 1. Built-in Syntax & Error Checking
+
+VS Code natively highlights syntax errors and warnings out of the box for all three languages:
+
+  
+
+- **HTML & CSS:** Highlights unclosed tags, malformed syntax, unknown CSS properties, and invalid values with red squiggly lines.
+    
+      
+    
+- **JavaScript:** Includes a built-in Language Server that detects syntax errors (missing brackets, misplaced keywords, typos) in real time.
+    
+      
+    
+- **Problems Panel:** Press **`Ctrl + Shift + M`** to open the **Problems** tab at the bottom of VS Code. It displays a list of every syntax error and warning across your project files.
+    
+      
+    
+
+> **Pro-Tip for JavaScript:** Add `// @ts-check` as the very first line of your `app.js` file. VS Code will automatically run extra type-checking and flag missing variables, bad function arguments, or potential runtime errors without requiring TypeScript.
+> 
+>   
+
+### 2. How to Preview HTML Code from VS Code
+
+To view your HTML live without having to manually start a terminal server every time, install one of these extensions from the VS Code Marketplace (`Ctrl + Shift + X`):
+
+  
+
+#### Option A: Live Preview (By Microsoft) — _Recommended_
+
+Allows you to preview HTML directly inside an embedded tab in VS Code.
+
+  
+
+1. Go to Extensions (`Ctrl + Shift + X`) and search for **`Live Preview`** (by _Microsoft_).
+    
+      
+    
+2. Click **Install**.
+    
+      
+    
+3. Open your `public/index.html` file.
+    
+      
+    
+4. Right-click anywhere in the editor code area and select **`Live Preview: Show Preview`** (or click the preview icon in the top-right corner).
+    
+      
+    
+5. A tab will open inside VS Code showing your page with **live reloading** whenever you save edits.
+    
+      
+    
+
+#### Option B: Live Server (By Ritwick Dey)
+
+Launches a local web server and opens the page directly in your default browser (Chrome, Edge, Firefox).
+
+  
+
+1. Search for and install **`Live Server`** in Extensions.
+    
+      
+    
+2. Open your `index.html` file.
+    
+      
+    
+3. Click the **`Go Live`** button in the status bar at the bottom-right corner of VS Code (or right-click `index.html` and select **`Open with Live Server`**).
+    
+      
+    
+4. Your default web browser will open `[http://127.0.0.1:5500/public/index.html](http://127.0.0.1:5500/public/index.html)` and update automatically whenever you modify HTML, CSS, or JS files.
+    
+      
+    
+
+### 3. Essential Extensions for Code Quality & Syntax
+
+If you want auto-formatting and extra syntax checks beyond the built-in capabilities:
+
+|**Extension**|**Function**|
+|---|---|
+|**Prettier - Code formatter**|Automatically formats HTML, CSS, and JS code on save (`Ctrl + S`).|
+|**ESLint**|Enforces JavaScript clean code standards, catches syntax bugs, and prevents unused variables.|
+|**HTML CSS Support**|Adds autocompletion for CSS class names inside your HTML elements.|
+
+
+...
+Yes! VS Code has built-in syntax checking for HTML, CSS, and JavaScript, and you can preview HTML pages directly inside the editor or in your browser using extensions.
+
+  
+
+### 1. Built-in Syntax & Error Checking
+
+VS Code natively highlights syntax errors and warnings out of the box for all three languages:
+
+  
+
+- **HTML & CSS:** Highlights unclosed tags, malformed syntax, unknown CSS properties, and invalid values with red squiggly lines.
+    
+      
+    
+- **JavaScript:** Includes a built-in Language Server that detects syntax errors (missing brackets, misplaced keywords, typos) in real time.
+    
+      
+    
+- **Problems Panel:** Press **`Ctrl + Shift + M`** to open the **Problems** tab at the bottom of VS Code. It displays a list of every syntax error and warning across your project files.
+    
+      
+    
+
+> **Pro-Tip for JavaScript:** Add `// @ts-check` as the very first line of your `app.js` file. VS Code will automatically run extra type-checking and flag missing variables, bad function arguments, or potential runtime errors without requiring TypeScript.
+> 
+>   
+
+### 2. How to Preview HTML Code from VS Code
+
+To view your HTML live without having to manually start a terminal server every time, install one of these extensions from the VS Code Marketplace (`Ctrl + Shift + X`):
+
+  
+
+#### Option A: Live Preview (By Microsoft) — _Recommended_
+
+Allows you to preview HTML directly inside an embedded tab in VS Code.
+
+  
+
+1. Go to Extensions (`Ctrl + Shift + X`) and search for **`Live Preview`** (by _Microsoft_).
+    
+      
+    
+2. Click **Install**.
+    
+      
+    
+3. Open your `public/index.html` file.
+    
+      
+    
+4. Right-click anywhere in the editor code area and select **`Live Preview: Show Preview`** (or click the preview icon in the top-right corner).
+    
+      
+    
+5. A tab will open inside VS Code showing your page with **live reloading** whenever you save edits.
+    
+      
+    
+
+#### Option B: Live Server (By Ritwick Dey)
+
+Launches a local web server and opens the page directly in your default browser (Chrome, Edge, Firefox).
+
+  
+
+1. Search for and install **`Live Server`** in Extensions.
+    
+      
+    
+2. Open your `index.html` file.
+    
+      
+    
+3. Click the **`Go Live`** button in the status bar at the bottom-right corner of VS Code (or right-click `index.html` and select **`Open with Live Server`**).
+    
+      
+    
+4. Your default web browser will open `[http://127.0.0.1:5500/public/index.html](http://127.0.0.1:5500/public/index.html)` and update automatically whenever you modify HTML, CSS, or JS files.
+    
+      
+    
+
+### 3. Essential Extensions for Code Quality & Syntax
+
+If you want auto-formatting and extra syntax checks beyond the built-in capabilities:
+
+|**Extension**|**Function**|
+|---|---|
+|**Prettier - Code formatter**|Automatically formats HTML, CSS, and JS code on save (`Ctrl + S`).|
+|**ESLint**|Enforces JavaScript clean code standards, catches syntax bugs, and prevents unused variables.|
+|**HTML CSS Support**|Adds autocompletion for CSS class names inside your HTML elements.|

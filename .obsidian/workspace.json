@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Sin nombre/Jupiter Lite.md",
+                "file": "Sin nombre/Sin título.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Jupiter Lite"
+              "title": "Sin título"
             }
           }
         ],
@@ -206,8 +206,9 @@
   },
   "active": "73c0923f4ff72739",
   "lastOpenFiles": [
-    "APP GALtur/Sin título.md",
     "Sin nombre/Jupiter Lite.md",
+    "Sin nombre/Sin título.md",
+    "APP GALtur/Sin título.md",
     "Sin nombre",
     "APP GALtur/Git + Jupitet_2.md",
     "APP GALtur/GALtur.md",
@@ -235,7 +236,6 @@
     "ReadMe.MD/Sin nombre",
     "ReadMe.MD/README.md V 1 utl.md",
     "ReadMe.MD/Readme 10.md",
-    "ReadMe.MD/Readme 11.md",
     "12341324/Sin título 1.pdf",
     "Pasted image 20260801181859.png",
     "Pasted image 20260801181508.png",

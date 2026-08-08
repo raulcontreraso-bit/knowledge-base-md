@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "GIT HUB/GIT.md",
+                "file": "GIT HUB/Programa.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GIT"
+              "title": "Programa"
             }
           }
         ],
@@ -206,8 +206,9 @@
   },
   "active": "73c0923f4ff72739",
   "lastOpenFiles": [
-    "Sin nombre/WEB 5.md",
     "GIT HUB/GIT.md",
+    "GIT HUB/Programa.md",
+    "Sin nombre/WEB 5.md",
     "GIT HUB",
     "Sin nombre/Jupiter Lite.md",
     "Sin nombre/WEB 4.md",
@@ -236,7 +237,6 @@
     "ReadMe.MD/Sin nombre/01 Profile Index.md",
     "ReadMe.MD/Sin nombre/Fiori Project Readme.md",
     "ReadMe.MD/Sin nombre/Bages.md",
-    "ReadMe.MD/Sin nombre/README.md V3 Working.md",
     "ReadMe.MD/Sin nombre",
     "12341324/Sin título 1.pdf",
     "Pasted image 20260801181859.png",

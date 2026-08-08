@@ -650,3 +650,297 @@ git push
 # 4. (Optional) Delete the local feature branch once merged
 git branch -d feature/add-docs
 ```
+
+
+---
+Let's walk through simulating a real Git merge conflict on `docs/architecture.md` and resolving it visually in VS Code.
+
+  
+
+### Step 1: Create a Conflict Branch & Make Change #1
+
+In your WSL terminal inside `~/projects/node-python-bridge`:
+
+  
+
+1. **Create and switch to a new branch:**
+    
+      
+    
+    Bash
+    
+    ```
+    git checkout -b edit-from-pc1
+    ```
+    
+2. **Add a line to `docs/architecture.md`:**
+    
+      
+    
+    Bash
+    
+    ```
+    echo "This edit was made on Laptop PC." >> docs/architecture.md
+    ```
+    
+3. **Commit the change:**
+    
+      
+    
+    Bash
+    
+    ```
+    git add . && git commit -m "Add Laptop note to architecture"
+    ```
+    
+
+### Step 2: Switch to `main` & Make Change #2 (Conflict Creation)
+
+Now, switch back to `main` and edit the **exact same file** to simulate work done from another machine before pulling:
+
+  
+
+1. **Switch back to `main`:**
+    
+      
+    
+    Bash
+    
+    ```
+    git checkout main
+    ```
+    
+2. **Add a different line to the exact same file:**
+    
+      
+    
+    Bash
+    
+    ```
+    echo "This edit was made on Desktop PC." >> docs/architecture.md
+    ```
+    
+3. **Commit this change on `main`:**
+    
+      
+    
+    Bash
+    
+    ```
+    git add . && git commit -m "Add Desktop note to architecture"
+    ```
+    
+
+### Step 3: Trigger the Merge Conflict
+
+Now attempt to merge `edit-from-pc1` into `main`:
+
+  
+
+Bash
+
+```
+git merge edit-from-pc1
+```
+
+**Terminal Output:**
+
+  
+
+Plaintext
+
+```
+AUTO-MERGING docs/architecture.md
+CONFLICT (content): Merge conflict in docs/architecture.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+Git has paused the merge process because it cannot automatically decide which line to keep!
+
+  
+
+### Step 4: Resolve the Conflict Visually in VS Code
+
+1. **Open VS Code** in this directory if it isn't already open:
+    
+      
+    
+    Bash
+    
+    ```
+    code .
+    ```
+    
+2. Open **`docs/architecture.md`**. You will see Git conflict markers inserted directly into the document:
+    
+      
+    
+    Markdown
+    
+    ```
+    <<<<<<< HEAD (Current Change)
+    This edit was made on Desktop PC.
+    =======
+    This edit was made on Laptop PC.
+    >>>>>>> edit-from-pc1 (Incoming Change)
+    ```
+    
+3. **Use the Inline Action Buttons:**
+    
+    Directly above `<<<<<<< HEAD`, VS Code displays clickable options in blue/green text:
+    
+      
+    - **`Accept Current Change`** $\rightarrow$ Keeps _Desktop PC_ text only.
+        
+          
+        
+    - **`Accept Incoming Change`** $\rightarrow$ Keeps _Laptop PC_ text only.
+        
+          
+        
+    - **`Accept Both Changes`** $\rightarrow$ Keeps **both** lines and removes the `<<<<<<<`, `=======`, and `>>>>>>>` conflict markers automatically.
+        
+          
+        
+4. Click **`Accept Both Changes`**.
+    
+      
+    
+5. Save the file (`Ctrl + S`).
+    
+      
+    
+
+### Step 5: Finalize the Merge
+
+Now that the conflict is resolved, complete the merge in your WSL terminal:
+
+  
+
+Bash
+
+```
+git add docs/architecture.md
+git commit -m "Resolve merge conflict in architecture docs"
+git push
+```
+
+### Step 6: Clean Up the Conflict Branch
+
+Delete the temporary branch now that its changes are safely merged:
+
+  
+
+Bash
+
+```
+git branch -d edit-from-pc1
+```
+
+You have now successfully simulated, inspected, and resolved a Git merge conflict using VS Code's editor tools!
+
+
+
+---
+
+Let's launch and test your new refactored **4-file architecture** (`index.html`, `styles.css`, `app.js`, and `server.js`).
+
+  
+
+### Step 1: Verify Your File Locations
+
+Ensure your files are placed in the correct directory layout:
+
+  
+
+Plaintext
+
+```
+node-python-bridge/
+├── public/
+│   ├── index.html
+│   ├── styles.css
+│   └── app.js
+├── backend-scripts/
+├── database/
+├── docs/
+└── server.js
+```
+
+You can confirm this in WSL by running:
+
+  
+
+Bash
+
+```
+ls -R public
+```
+
+### Step 2: Start Your Server
+
+Start your Node.js orchestrator inside your WSL terminal:
+
+  
+
+Bash
+
+```
+node server.js
+```
+
+You should see:
+
+  
+
+Plaintext
+
+```
+🚀 Servidor unificado refactorizado en http://localhost:3000
+```
+
+### Step 3: Test the App in Your Browser
+
+Open your browser and navigate to:
+
+`http://localhost:3000`
+
+  
+
+Perform these **4 validation checks** to make sure every language and module works cleanly over `fetch()` without full page reloads:
+
+  
+
+1. **Dashboard Stat Loading (Fortran & Python):**
+    
+      
+    - Check the top card. The Fortran statistics (Edad Promedio, Peso Máximo, Colesterol Mínimo) should load automatically without showing `"Cargando..."`.
+        
+          
+        
+2. **Database View (Python & SQLite):**
+    
+      
+    - The SQL records view should display formatted client data retrieved from Python.
+        
+          
+        
+3. **Client Creation (HTML Form + Node API + Python):**
+    
+      
+    - Fill out the **Registro de Datos Clínicos y Pólizas** form with test values (e.g., ID: `CLI099`, Name: `Test User`, etc.) and click **Guardar Registro**.
+        
+          
+        
+    - The form should clear automatically, and the SQL table and Fortran stats will refresh instantly without the page blinking.
+        
+          
+        
+4. **Polyglot Execution Chain (C++, COBOL, Java):**
+    
+      
+    - Enter an existing ID into **Inspección de Clientes** (e.g., `CLI001` or the ID you just created) and click **Lanzar Cadena de Procesos**.
+        
+          
+        
+    - You should see the status text update dynamically and render the combined results from C++ (binary tree lookup), COBOL (policy calculation), and Java (ASCII terminal output).
